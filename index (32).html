@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1B64DA">
+  <title>중앙회노조 ON — 7대 공약</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <style>
+    :root{
+      --bg:#F2F4F6;--white:#FFF;--g50:#F9FAFB;--g100:#F2F4F6;--g200:#E5E8EB;
+      --tp:#0D1117;--ts:#3D4A5C;--tt:#7B8998;--bd:#D8DCE2;
+      --blue:#3182F6;--blue-d:#1B64DA;--blue-l:#EBF4FF;
+      --green:#2A8F3E;--green-l:#EAFAF0;
+      --orange:#D97706;--orange-l:#FEF3C7;
+      --red:#DC2626;--red-l:#FEF2F2;
+      --purple:#5B47C7;--purple-l:#F0EEFF;
+      --teal:#0891B2;--teal-l:#ECFEFF;
+      --r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;--r-2xl:24px;
+      --sh:0 1px 4px rgba(0,0,0,.06),0 2px 8px rgba(0,0,0,.04);
+      --sh-md:0 4px 16px rgba(0,0,0,.08);
+      --nav-h:68px;--sb:env(safe-area-inset-bottom,0px);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    html{scroll-behavior:smooth}
+    body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;
+      background:var(--bg);color:var(--tp);line-height:1.6;-webkit-font-smoothing:antialiased;
+      word-break:keep-all;padding-bottom:calc(var(--nav-h) + var(--sb));font-size:16px;}
+    button,input,textarea,select{font:inherit;cursor:pointer}
+    /* HEADER */
+    .top-bar{position:sticky;top:0;z-index:100;background:var(--white);
+      border-bottom:1.5px solid var(--bd);height:56px;
+      display:flex;align-items:center;justify-content:space-between;padding:0 18px;}
+    .brand-area{display:flex;align-items:center;gap:10px}
+    .brand-pill{background:var(--blue-d);color:#fff;font-size:13px;font-weight:800;
+      padding:6px 11px;border-radius:9px;letter-spacing:-.2px;line-height:1;}
+    .brand-name{font-size:16px;font-weight:700;color:var(--tp);letter-spacing:-.5px}
+    .hdr-admin{background:var(--g100);border:1px solid var(--bd);color:var(--ts);
+      font-size:13px;font-weight:700;padding:8px 16px;border-radius:99px;}
+    /* VIEWS */
+    .view{display:none}.view.active{display:block}
+    /* BOTTOM NAV */
+    .bnav{position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--white);
+      border-top:1.5px solid var(--bd);height:calc(var(--nav-h) + var(--sb));
+      padding-bottom:var(--sb);display:flex;}
+    .bnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;
+      justify-content:center;gap:4px;background:none;border:none;color:var(--tt);transition:color .15s;}
+    .bnav-btn.active{color:var(--blue)}
+    .bnav-btn .ni{font-size:21px;line-height:1}.bnav-btn .nl{font-size:11px;font-weight:700;letter-spacing:-.3px}
+    /* WRAP */
+    .wrap{max-width:560px;margin:0 auto;padding:16px 16px 28px}
+    /* SECTION HEADING */
+    .sec-h{font-size:18px;font-weight:800;letter-spacing:-.6px;margin:22px 0 12px;
+      display:flex;align-items:center;gap:8px;}
+    .sec-h::before{content:'';display:block;width:4px;height:20px;background:var(--blue);border-radius:99px;flex-shrink:0;}
+    .sec-h.green::before{background:var(--green)}
+    .sec-h.orange::before{background:var(--orange)}
+    .divider{height:1px;background:var(--bd);margin:4px 0 20px}
+    /* PTITLE */
+    .ptitle{margin-bottom:18px}
+    .ptitle h2{font-size:23px;font-weight:800;letter-spacing:-.7px;margin-bottom:5px}
+    .ptitle p{font-size:15px;color:var(--ts);line-height:1.65}
+    /* ── HERO ── */
+    .hero{background:linear-gradient(140deg,#0F3FA6 0%,#1B64DA 50%,#3182F6 100%);
+      border-radius:var(--r-2xl);padding:26px 20px;margin-bottom:16px;
+      color:#fff;position:relative;overflow:hidden;}
+    .hero::after{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;
+      background:rgba(255,255,255,.06);border-radius:50%;pointer-events:none;}
+    .hero-eye{font-size:12px;font-weight:700;opacity:.75;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px}
+    .hero-h2{font-size:26px;font-weight:800;line-height:1.3;letter-spacing:-.8px;margin-bottom:6px;position:relative;z-index:1}
+    .hero-sub{font-size:14px;opacity:.85;line-height:1.65;margin-bottom:22px;position:relative;z-index:1}
+    .hero-pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
+    .hero-pill{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);
+      border-radius:99px;padding:5px 12px;font-size:12px;font-weight:700;letter-spacing:-.1px}
+    .hero-btns{display:flex;gap:8px}
+    .hbtn-w{flex:1;padding:13px;background:#fff;color:var(--blue-d);border:none;
+      border-radius:var(--r-md);font-size:15px;font-weight:800;letter-spacing:-.3px;}
+    .hbtn-o{flex:1;padding:13px;background:rgba(255,255,255,.18);color:#fff;
+      border:1.5px solid rgba(255,255,255,.4);border-radius:var(--r-md);font-size:15px;font-weight:700;letter-spacing:-.3px;}
+    /* ── PLEDGE QUICK GRID (HOME) ── */
+    .pq-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .pq-card{background:var(--white);border-radius:var(--r-lg);padding:16px 14px;
+      box-shadow:var(--sh);border:1.5px solid var(--bd);cursor:pointer;
+      display:flex;flex-direction:column;gap:6px;
+      transition:border-color .15s,box-shadow .15s;}
+    .pq-card:active{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-l)}
+    .pq-top{display:flex;align-items:center;justify-content:space-between}
+    .pq-no{font-size:11px;font-weight:800;color:var(--blue-d);background:var(--blue-l);
+      padding:3px 8px;border-radius:99px;letter-spacing:-.1px}
+    .pq-icon{font-size:20px;line-height:1}
+    .pq-title{font-size:14px;font-weight:800;color:var(--tp);letter-spacing:-.4px;line-height:1.35}
+    .pq-short{font-size:12px;color:var(--tt);line-height:1.45;font-weight:500}
+    .pq-more{font-size:12px;font-weight:700;color:var(--blue);margin-top:2px}
+    /* pq-card.wide (7번째가 홀수일 때) */
+    .pq-card.wide{grid-column:1/-1;flex-direction:row;align-items:center;gap:12px}
+    .pq-card.wide .pq-title{font-size:15px}
+    /* ── 7대 공약 MANIFESTO VIEW ── */
+    .mn-header{background:linear-gradient(140deg,#0F3FA6,#1B64DA);border-radius:var(--r-2xl);
+      padding:22px 20px;margin-bottom:16px;color:#fff;}
+    .mn-header-tag{font-size:12px;font-weight:700;opacity:.75;letter-spacing:.5px;margin-bottom:8px;text-transform:uppercase}
+    .mn-header-h{font-size:24px;font-weight:800;letter-spacing:-.7px;margin-bottom:6px}
+    .mn-header-p{font-size:14px;opacity:.85;line-height:1.6}
+    .mn-header-stats{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+    .mn-stat{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);
+      border-radius:var(--r-md);padding:8px 14px;font-size:13px;font-weight:700}
+    /* Accordion card */
+    .ac-card{background:var(--white);border-radius:var(--r-lg);margin-bottom:10px;
+      box-shadow:var(--sh);overflow:hidden;border:1.5px solid var(--bd);transition:border-color .2s;}
+    .ac-card.open{border-color:var(--blue)}
+    .ac-head{display:flex;align-items:center;gap:12px;padding:18px 16px;cursor:pointer;user-select:none}
+    .ac-no-badge{min-width:38px;height:38px;border-radius:var(--r-sm);
+      display:flex;align-items:center;justify-content:center;
+      font-size:12px;font-weight:800;flex-shrink:0;}
+    .ac-icon-large{font-size:22px;line-height:1;flex-shrink:0}
+    .ac-info{flex:1;min-width:0}
+    .ac-title{font-size:16px;font-weight:800;letter-spacing:-.4px;margin-bottom:3px;line-height:1.35}
+    .ac-short{font-size:13px;color:var(--ts);line-height:1.5}
+    .ac-chevron{font-size:14px;color:var(--tt);flex-shrink:0;transition:transform .2s}
+    .ac-card.open .ac-chevron{transform:rotate(180deg);color:var(--blue)}
+    .ac-body{display:none;padding:0 16px 18px}
+    .ac-card.open .ac-body{display:block}
+    .ac-divider{height:1px;background:var(--g200);margin-bottom:16px}
+    /* detail sections inside accordion */
+    .det-sec{margin-bottom:16px}
+    .det-label{font-size:11px;font-weight:800;color:var(--tt);letter-spacing:.8px;
+      text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:6px}
+    .det-label::before{content:'';display:block;width:3px;height:12px;background:currentColor;border-radius:99px}
+    /* background text */
+    .det-bg{font-size:14px;color:var(--ts);line-height:1.7;background:var(--g50);
+      border-radius:var(--r-md);padding:14px;border-left:3px solid var(--blue);}
+    /* timeline */
+    .det-tl{list-style:none}
+    .det-tl-item{display:flex;gap:10px;padding-bottom:14px;position:relative}
+    .det-tl-item:not(:last-child)::after{content:'';position:absolute;left:14px;top:30px;bottom:0;width:2px;background:var(--bd);}
+    .det-tl-dot{min-width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+      font-size:10px;font-weight:800;position:relative;z-index:1;flex-shrink:0;}
+    .det-tl-right{padding-top:3px}
+    .det-tl-period{font-size:11px;font-weight:800;margin-bottom:2px}
+    .det-tl-text{font-size:14px;font-weight:600;letter-spacing:-.3px;color:var(--tp)}
+    /* demands chips */
+    .det-chips{display:flex;flex-wrap:wrap;gap:7px}
+    .det-chip{background:var(--g100);color:var(--ts);border-radius:var(--r-sm);
+      padding:6px 11px;font-size:13px;font-weight:600;border:1px solid var(--bd);line-height:1.3}
+    /* metrics list */
+    .det-metrics{list-style:none;display:flex;flex-direction:column;gap:7px}
+    .det-metric-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ts)}
+    .det-metric-item::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0}
+    /* 색상 variants */
+    .c-blue .ac-no-badge{background:var(--blue-l);color:var(--blue-d)}
+    .c-blue .det-tl-dot{background:var(--blue-l);color:var(--blue-d)}
+    .c-blue .det-tl-period{color:var(--blue-d)}
+    .c-indigo .ac-no-badge{background:#EEF2FF;color:#4338CA}
+    .c-indigo .det-tl-dot{background:#EEF2FF;color:#4338CA}
+    .c-indigo .det-tl-period{color:#4338CA}
+    .c-green .ac-no-badge{background:var(--green-l);color:var(--green)}
+    .c-green .det-tl-dot{background:var(--green-l);color:var(--green)}
+    .c-green .det-tl-period{color:var(--green)}
+    .c-orange .ac-no-badge{background:var(--orange-l);color:var(--orange)}
+    .c-orange .det-tl-dot{background:var(--orange-l);color:var(--orange)}
+    .c-orange .det-tl-period{color:var(--orange)}
+    .c-red .ac-no-badge{background:var(--red-l);color:var(--red)}
+    .c-red .det-tl-dot{background:var(--red-l);color:var(--red)}
+    .c-red .det-tl-period{color:var(--red)}
+    .c-purple .ac-no-badge{background:var(--purple-l);color:var(--purple)}
+    .c-purple .det-tl-dot{background:var(--purple-l);color:var(--purple)}
+    .c-purple .det-tl-period{color:var(--purple)}
+    .c-teal .ac-no-badge{background:var(--teal-l);color:var(--teal)}
+    .c-teal .det-tl-dot{background:var(--teal-l);color:var(--teal)}
+    .c-teal .det-tl-period{color:var(--teal)}
+    /* 이행률 link */
+    .pledge-link-card{background:linear-gradient(135deg,#EBF4FF,#F0EEFF);border:1.5px solid var(--blue-l);
+      border-radius:var(--r-lg);padding:18px 16px;margin-top:8px;display:flex;align-items:center;gap:14px;}
+    .plc-icon{font-size:28px}.plc-body{flex:1}
+    .plc-title{font-size:15px;font-weight:800;letter-spacing:-.4px;margin-bottom:3px}
+    .plc-sub{font-size:13px;color:var(--ts)}.plc-arrow{font-size:18px;color:var(--blue)}
+    /* ── TIMELINE VIEW ── */
+    .tl-big-card{background:var(--white);border-radius:var(--r-lg);padding:18px 16px;box-shadow:var(--sh);margin-bottom:10px}
+    .tl-big-phase{font-size:13px;font-weight:800;color:var(--blue-d);background:var(--blue-l);
+      border-radius:var(--r-sm);padding:5px 12px;display:inline-block;margin-bottom:12px}
+    .tl-big-items{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .tl-big-item{font-size:14px;color:var(--ts);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+    .tl-big-item::before{content:'→';color:var(--blue);font-weight:800;flex-shrink:0;margin-top:1px}
+    /* ── LIVE BOARD ── */
+    .lv-item{background:var(--white);border-radius:var(--r-lg);padding:17px 16px;margin-bottom:10px;box-shadow:var(--sh)}
+    .lv-hd{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:9px;gap:8px}
+    .lv-title{font-size:16px;font-weight:800;letter-spacing:-.4px;flex:1;line-height:1.4}
+    .lv-date{font-size:12px;color:var(--tt);white-space:nowrap;margin-top:2px;font-weight:600}
+    .lv-badge{margin-bottom:8px}.lv-memo{font-size:14px;color:var(--ts);line-height:1.55}
+    .badge{display:inline-flex;align-items:center;justify-content:center;
+      padding:4px 11px;border-radius:99px;font-size:13px;font-weight:700;white-space:nowrap;}
+    .b-진행중{background:var(--blue-l);color:var(--blue-d)}.b-완료{background:var(--green-l);color:var(--green)}
+    .b-준비중{background:var(--orange-l);color:var(--orange)}.b-계획중{background:var(--purple-l);color:var(--purple)}
+    .b-보류{background:var(--red-l);color:var(--red)}
+    /* ── PLEDGE TRACKER ── */
+    .pl-hero{background:linear-gradient(135deg,#0F3FA6,var(--blue));border-radius:var(--r-2xl);
+      padding:22px 20px;margin-bottom:14px;color:#fff;text-align:center;}
+    .pl-hero-lbl{font-size:13px;opacity:.85;font-weight:700;margin-bottom:5px}
+    .pl-hero-val{font-size:56px;font-weight:800;letter-spacing:-4px;line-height:1;margin-bottom:3px}
+    .pl-hero-sub{font-size:13px;opacity:.75}
+    .pl-item{background:var(--white);border-radius:var(--r-lg);padding:18px 16px;margin-bottom:10px;box-shadow:var(--sh)}
+    .pl-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:11px}
+    .pl-name{font-size:16px;font-weight:800;letter-spacing:-.4px;flex:1;line-height:1.4}
+    .pl-bar{background:var(--g100);border-radius:99px;height:10px;overflow:hidden;margin-bottom:9px}
+    .pl-bar-in{height:100%;background:linear-gradient(90deg,#0F3FA6,var(--blue));border-radius:99px;transition:width .8s ease}
+    .pl-foot{display:flex;align-items:center;gap:7px;font-size:14px;color:var(--ts)}
+    .pl-pct{font-size:17px;font-weight:800;color:var(--tp)}
+    /* ── VOICE ── */
+    .form-card{background:var(--white);border-radius:var(--r-lg);padding:20px 17px;margin-bottom:16px;box-shadow:var(--sh)}
+    .form-row{margin-bottom:15px}
+    .f-lbl{display:block;font-size:14px;font-weight:700;color:var(--ts);margin-bottom:7px}
+    .f-sel,.f-ta{width:100%;padding:14px 15px;border:1.5px solid var(--bd);border-radius:var(--r-md);
+      font-size:16px;color:var(--tp);background:var(--white);outline:none;transition:border-color .15s;-webkit-appearance:none;}
+    .f-sel:focus,.f-ta:focus{border-color:var(--blue)}
+    .f-ta{min-height:125px;resize:vertical;line-height:1.65}.f-ta::placeholder{color:var(--tt);font-size:15px}
+    .vc-item{background:var(--white);border-radius:var(--r-lg);padding:17px 16px;margin-bottom:10px;box-shadow:var(--sh)}
+    .vc-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:9px}
+    .pill{background:var(--blue-l);color:var(--blue-d);border-radius:99px;padding:4px 11px;font-size:13px;font-weight:700}
+    .vc-text{font-size:15px;color:var(--tp);line-height:1.65}.vc-time{font-size:12px;color:var(--tt);margin-top:7px}
+    .vc-reply{margin-top:12px;padding:12px 14px;background:#F0F7FF;border-radius:var(--r-md);border-left:3px solid var(--blue);}
+    .vc-reply-lbl{font-size:12px;font-weight:800;color:var(--blue-d);margin-bottom:4px}
+    .vc-reply-text{font-size:14px;color:var(--ts);line-height:1.55}
+    /* ── ANNOUNCEMENT ── */
+    .ann{border-radius:var(--r-lg);padding:14px 16px;margin-bottom:14px;display:flex;gap:12px;align-items:flex-start;}
+    .ann-info{background:#EBF4FF;border:1.5px solid #BDD8FC}.ann-success{background:var(--green-l);border:1.5px solid #A7E3B8}
+    .ann-warn{background:var(--orange-l);border:1.5px solid #FCD47E}
+    .ann-icon{font-size:20px;line-height:1;margin-top:1px}
+    .ann-title{font-size:14px;font-weight:800;margin-bottom:3px}
+    .ann-info .ann-title{color:var(--blue-d)}.ann-success .ann-title{color:var(--green)}.ann-warn .ann-title{color:var(--orange)}
+    .ann-text{font-size:14px;color:var(--ts);line-height:1.5}
+    /* ── BUTTONS ── */
+    .btn-p{width:100%;padding:16px;background:var(--blue);color:#fff;border:none;
+      border-radius:var(--r-md);font-size:16px;font-weight:800;letter-spacing:-.4px;transition:background .15s;}
+    .btn-p:active{background:var(--blue-d)}
+    .btn-s{width:100%;padding:16px;background:var(--g100);color:var(--tp);border:1px solid var(--bd);
+      border-radius:var(--r-md);font-size:16px;font-weight:700;letter-spacing:-.4px;}
+    .btn-d{width:100%;padding:16px;background:var(--red-l);color:var(--red);border:1px solid #FECACA;
+      border-radius:var(--r-md);font-size:16px;font-weight:700;letter-spacing:-.4px;}
+    .btn-g{width:100%;padding:16px;background:var(--green-l);color:var(--green);border:1px solid #A7E3B8;
+      border-radius:var(--r-md);font-size:16px;font-weight:700;letter-spacing:-.4px;}
+    .btn-outline{width:100%;padding:15px;background:transparent;color:var(--blue);
+      border:2px solid var(--blue);border-radius:var(--r-md);font-size:15px;font-weight:800;letter-spacing:-.3px;}
+    /* ── ADMIN ── */
+    .adm-login{background:var(--white);border-radius:var(--r-lg);padding:26px 20px;box-shadow:var(--sh);margin-bottom:12px}
+    .adm-login h3{font-size:19px;font-weight:800;margin-bottom:5px}
+    .adm-login p{font-size:14px;color:var(--ts);margin-bottom:18px}
+    .adm-pw-row{display:flex;gap:8px}
+    .adm-pw-in{flex:1;padding:14px 15px;border:1.5px solid var(--bd);border-radius:var(--r-md);
+      font-size:16px;outline:none;transition:border-color .15s;-webkit-appearance:none;background:var(--white);}
+    .adm-pw-in:focus{border-color:var(--blue)}
+    .adm-pw-btn{padding:14px 22px;background:var(--blue);color:#fff;border:none;border-radius:var(--r-md);font-size:16px;font-weight:800;}
+    .adm-panel{display:none}.adm-panel.open{display:block}
+    .adm-tabs{display:flex;gap:7px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+      scrollbar-width:none;margin-bottom:16px;padding-bottom:2px;}
+    .adm-tabs::-webkit-scrollbar{display:none}
+    .a-tab{padding:9px 15px;border-radius:99px;border:1.5px solid var(--bd);background:var(--white);
+      font-size:14px;font-weight:700;color:var(--ts);white-space:nowrap;flex-shrink:0;}
+    .a-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+    .adm-editor{display:flex;flex-direction:column;gap:12px}
+    .adm-block{background:var(--white);border-radius:var(--r-lg);padding:18px;box-shadow:var(--sh)}
+    .adm-block h4{font-size:15px;font-weight:800;color:var(--ts);margin-bottom:14px}
+    .adm-block h4.danger{color:var(--red)}
+    .flbl{display:block;font-size:13px;font-weight:700;color:var(--tt);margin-bottom:6px;margin-top:12px}
+    .flbl:first-child,.flbl.no-top{margin-top:0}
+    .adm-in,.adm-ta,.adm-sel{width:100%;padding:13px 14px;border:1.5px solid var(--bd);border-radius:var(--r-md);
+      font-size:15px;outline:none;transition:border-color .15s;background:var(--g50);color:var(--tp);-webkit-appearance:none;}
+    .adm-in:focus,.adm-ta:focus,.adm-sel:focus{border-color:var(--blue);background:var(--white)}
+    .adm-ta{min-height:90px;resize:vertical;line-height:1.55}
+    .adm-ta-sm{min-height:60px}
+    .itm-blk{background:var(--g50);border-radius:var(--r-md);padding:16px;margin-bottom:10px;border:1px solid var(--bd);}
+    .itm-acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+    .btn-sm{padding:8px 13px;border:1px solid var(--bd);background:var(--white);border-radius:var(--r-sm);font-size:13px;font-weight:700;color:var(--ts);}
+    .btn-add{width:100%;padding:13px;border:2px dashed var(--blue);background:var(--blue-l);color:var(--blue);
+      border-radius:var(--r-md);font-size:14px;font-weight:800;margin-top:8px;}
+    .adm-actions{position:sticky;bottom:calc(var(--nav-h) + var(--sb) + 12px);
+      background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+      border:1.5px solid var(--bd);border-radius:var(--r-xl);padding:14px;
+      display:flex;flex-direction:column;gap:9px;margin-top:14px;z-index:50;box-shadow:var(--sh-md);}
+    .hint{font-size:13px;color:var(--tt);line-height:1.65;margin-top:8px}
+    /* RANGE */
+    .range-wrap{display:flex;align-items:center;gap:12px;margin-top:4px}
+    .range-num{min-width:48px;text-align:center;font-size:15px;font-weight:800;color:var(--blue);background:var(--blue-l);border-radius:var(--r-sm);padding:6px 4px;}
+    input[type=range]{flex:1;height:8px;-webkit-appearance:none;appearance:none;border-radius:99px;background:var(--g200);outline:none;}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--blue);border:2px solid #fff;box-shadow:0 2px 8px rgba(49,130,246,.4);cursor:pointer;}
+    /* TOGGLE */
+    .toggle-row{display:flex;align-items:center;justify-content:space-between;padding:4px 0}
+    .toggle-lbl{font-size:15px;font-weight:600;color:var(--tp)}
+    .toggle{position:relative;display:inline-block;width:46px;height:26px}
+    .toggle input{opacity:0;width:0;height:0}
+    .toggle-slider{position:absolute;cursor:pointer;inset:0;background:var(--bd);border-radius:99px;transition:.2s;}
+    .toggle-slider::before{content:'';position:absolute;height:20px;width:20px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.2);}
+    .toggle input:checked + .toggle-slider{background:var(--blue)}
+    .toggle input:checked + .toggle-slider::before{transform:translateX(20px)}
+    /* MISC */
+    .crd{background:var(--white);border-radius:var(--r-lg);padding:18px 16px;box-shadow:var(--sh);margin-bottom:10px}
+    .empty{text-align:center;padding:36px 16px;color:var(--tt);background:var(--white);border-radius:var(--r-lg);border:1.5px dashed var(--bd);font-size:15px;font-weight:600;}
+    .hidden{display:none!important}
+    .toast{position:fixed;left:50%;bottom:calc(var(--nav-h) + var(--sb) + 18px);transform:translateX(-50%);
+      background:var(--tp);color:#fff;padding:13px 22px;border-radius:99px;font-size:14px;font-weight:700;
+      z-index:999;white-space:nowrap;pointer-events:none;letter-spacing:-.3px;box-shadow:0 4px 20px rgba(0,0,0,.18);}
+    .file-input-wrap{position:relative;overflow:hidden;display:inline-block;width:100%}
+    .file-input-wrap input[type=file]{position:absolute;left:0;top:0;opacity:0;width:100%;height:100%;cursor:pointer;}
+    @media(min-width:640px){.wrap{padding:24px 24px 32px}.pq-grid{grid-template-columns:repeat(3,1fr)}.pq-card.wide{grid-column:auto}}
+  </style>
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="brand-area">
+    <div class="brand-pill">ON</div>
+    <span class="brand-name" id="brandName">중앙회노조 ON</span>
+  </div>
+  <button class="hdr-admin" data-view-jump="admin">관리자</button>
+</header>
+
+<!-- ══ 홈 ══ -->
+<section class="view active" id="view-home">
+  <div class="wrap">
+    <div id="annBanner" class="hidden"></div>
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-eye">새마을금고중앙회 노동조합 선거 공약</div>
+      <h2 class="hero-h2" id="heroTitle">조합원이 바로 보는 노동조합</h2>
+      <p class="hero-sub" id="heroText">감이 아니라 데이터로, 말이 아니라 절차로, 집행부가 아니라 조합원이 검증하는 노동조합을 만들겠습니다.</p>
+      <div class="hero-pills">
+        <span class="hero-pill">청취</span><span class="hero-pill">측정</span>
+        <span class="hero-pill">설계</span><span class="hero-pill">실행</span>
+        <span class="hero-pill">공개</span><span class="hero-pill">개선</span>
+      </div>
+      <div class="hero-btns">
+        <button class="hbtn-w" data-view-jump="manifesto">📋 7대 공약 보기</button>
+        <button class="hbtn-o" data-view-jump="voice">💬 의견 남기기</button>
+      </div>
+    </div>
+
+    <!-- 7대 공약 퀵뷰 -->
+    <div class="sec-h">7대 핵심 공약</div>
+    <p style="font-size:14px;color:var(--ts);margin-bottom:14px;line-height:1.6">카드를 탭하면 공약 상세 내용을 확인할 수 있습니다.</p>
+    <div class="pq-grid" id="homeQuickPledges"></div>
+    <div style="margin-top:12px">
+      <button class="btn-outline" data-view-jump="manifesto">공약 전체 상세 보기 →</button>
+    </div>
+
+    <!-- 100일 로드맵 요약 -->
+    <div class="divider"></div>
+    <div class="sec-h">100일 실행계획</div>
+    <div id="homeRoadmap"></div>
+
+    <!-- 교섭·의견 CTA -->
+    <div class="divider"></div>
+    <div class="sec-h">지금 참여하세요</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <button data-view-jump="live" style="background:var(--white);border:1.5px solid var(--bd);border-radius:var(--r-lg);padding:16px 12px;text-align:left;box-shadow:var(--sh)">
+        <div style="font-size:22px;margin-bottom:7px">📡</div>
+        <div style="font-size:15px;font-weight:800;letter-spacing:-.4px;margin-bottom:3px">교섭 라이브</div>
+        <div style="font-size:12px;color:var(--tt)">진행상황 확인</div>
+      </button>
+      <button data-view-jump="voice" style="background:var(--white);border:1.5px solid var(--bd);border-radius:var(--r-lg);padding:16px 12px;text-align:left;box-shadow:var(--sh)">
+        <div style="font-size:22px;margin-bottom:7px">💬</div>
+        <div style="font-size:15px;font-weight:800;letter-spacing:-.4px;margin-bottom:3px">의견 남기기</div>
+        <div style="font-size:12px;color:var(--tt)">익명 가능</div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 7대 공약 (MANIFESTO) ══ -->
+<section class="view" id="view-manifesto">
+  <div class="wrap">
+    <div class="mn-header">
+      <div class="mn-header-tag">새마을금고중앙회 노동조합 선거 공약집</div>
+      <div class="mn-header-h">7대 핵심 공약</div>
+      <div class="mn-header-p">각 공약을 탭하면 실행계획·요구사항·측정지표를 확인할 수 있습니다.</div>
+      <div class="mn-header-stats">
+        <div class="mn-stat">📋 7개 공약</div>
+        <div class="mn-stat">⏱ 5단계 실행</div>
+        <div class="mn-stat">📊 측정지표 공개</div>
+      </div>
+    </div>
+    <div id="accordionCards"></div>
+    <!-- 이행률 링크 -->
+    <div class="pledge-link-card" data-view-jump="pledges" style="cursor:pointer">
+      <div class="plc-icon">📊</div>
+      <div class="plc-body">
+        <div class="plc-title">공약 이행률 확인</div>
+        <div class="plc-sub">당선 후 공약별 진행 현황을 실시간 공개합니다</div>
+      </div>
+      <div class="plc-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 교섭 라이브 ══ -->
+<section class="view" id="view-live">
+  <div class="wrap">
+    <div class="ptitle"><h2 id="liveTitle"></h2><p id="liveLead"></p></div>
+    <div id="liveBoard"></div>
+  </div>
+</section>
+
+<!-- ══ 의견광장 ══ -->
+<section class="view" id="view-voice">
+  <div class="wrap">
+    <div class="ptitle"><h2 id="voiceTitle"></h2><p id="voiceLead"></p></div>
+    <div class="form-card">
+      <form id="voiceForm">
+        <div class="form-row"><label class="f-lbl">분류</label>
+          <select class="f-sel" id="voiceCategory">
+            <option>전보 고충</option><option>인사·평가</option><option>승진 기준</option>
+            <option>복지·근무조건</option><option>지역근무</option><option>업무량</option>
+            <option>위원회 제안</option><option>교섭 의제</option><option>긴급 상담</option><option>자유 의견</option>
+          </select></div>
+        <div class="form-row"><label class="f-lbl">공개 범위</label>
+          <select class="f-sel" id="voiceScope">
+            <option>익명 제안</option><option>비공개 상담</option><option>공개 제안</option>
+          </select></div>
+        <div class="form-row"><label class="f-lbl">의견 내용</label>
+          <textarea class="f-ta" id="voiceText" maxlength="800" placeholder="전보·인사·승진·복지·근무조건 등 무엇이든 남겨주세요." required></textarea></div>
+        <button class="btn-p" type="submit">의견 보내기</button>
+      </form>
+    </div>
+    <div class="sec-h" style="margin-top:4px">접수된 의견</div>
+    <div id="voiceList"></div>
+  </div>
+</section>
+
+<!-- ══ 이행률 ══ -->
+<section class="view" id="view-pledges">
+  <div class="wrap">
+    <div id="pledgeOverall"></div>
+    <div class="ptitle" style="margin-top:4px"><h2 id="pledgeTitle"></h2><p id="pledgeLead"></p></div>
+    <div id="pledgeList"></div>
+    <div style="margin-top:8px">
+      <button class="btn-outline" data-view-jump="manifesto">← 7대 공약 전체 보기</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 관리자 ══ -->
+<section class="view" id="view-admin">
+  <div class="wrap">
+    <div class="ptitle"><h2>관리자 모드</h2><p>비밀번호 입력 후 코드 없이 모든 콘텐츠를 수정·관리할 수 있습니다.</p></div>
+    <div class="adm-login" id="loginBox">
+      <h3>관리자 로그인</h3><p>비밀번호를 입력해 주세요. (기본: 2026)</p>
+      <div class="adm-pw-row">
+        <input class="adm-pw-in" type="password" inputmode="numeric" placeholder="비밀번호" id="adminPw">
+        <button class="adm-pw-btn" id="loginBtn">로그인</button>
+      </div>
+    </div>
+    <div class="adm-panel" id="adminPanel">
+      <div class="adm-tabs" id="adminTabs"></div>
+      <div class="adm-editor" id="adminEditor"></div>
+      <div class="adm-actions" id="adminActions">
+        <button class="btn-p" id="saveAdmin">💾 저장하기</button>
+        <button class="btn-s" id="previewHome">👁 홈 미리보기</button>
+        <button class="btn-d" id="resetData">⚠ 초기화</button>
+      </div>
+      <p class="hint">브라우저(localStorage)에 저장됩니다. Firebase·Supabase 연동으로 여러 기기 공유 가능.</p>
+    </div>
+  </div>
+</section>
+
+<nav class="bnav">
+  <button class="bnav-btn active" data-view="home"><span class="ni">🏠</span><span class="nl">홈</span></button>
+  <button class="bnav-btn" data-view="manifesto"><span class="ni">📋</span><span class="nl">공약</span></button>
+  <button class="bnav-btn" data-view="live"><span class="ni">📡</span><span class="nl">교섭</span></button>
+  <button class="bnav-btn" data-view="voice"><span class="ni">💬</span><span class="nl">의견</span></button>
+  <button class="bnav-btn" data-view="admin"><span class="ni">⚙️</span><span class="nl">관리</span></button>
+</nav>
+
+<script>
+/* ════ 7대 공약 데이터 ════ */
+const PLEDGES7 = [
+  {no:"1호",icon:"🔄",color:"c-blue",
+   title:"합리적 전보 기준 공개 및 생활영향 심사제",
+   short:"전보는 삶의 문제입니다. 기준·예고·심사·이의제기 절차를 만들겠습니다.",
+   bg:"전보는 조직 운영의 수단일 수 있습니다. 그러나 직원에게는 생활·가족·주거·통근·건강·경력의 문제입니다. 무분별한 전보를 줄이고, 합리적 기준과 설명 가능한 절차를 만들겠습니다.",
+   timeline:[{d:"30일",t:"전보 고충·불만 유형 익명 조사"},{d:"60일",t:"전보 생활영향 항목 정리"},{d:"100일",t:"합리적 전보 기준 개선안 발표"},{d:"6개월",t:"전보 사전예고제·이의제기 절차 교섭 요구"},{d:"1년",t:"전보 운영현황 조합원 보고서 발간"}],
+   demands:["전보 기준 공개","전보 사전예고제","생활영향 심사제","이의제기·재검토 절차","돌봄·건강·주거·통근·경력 요소 반영","고충 처리 결과 공개"],
+   metrics:["전보 고충 접수 건수","고충 처리율","평균 처리기간","이의제기 반영 건수","전보 만족도 변화"]},
+  {no:"2호",icon:"⭐",color:"c-indigo",
+   title:"인사·평가·승진 공정성 검증 시스템",
+   short:"결과만 통보받는 인사에서 벗어납니다. 피드백권과 이의제기 절차를 강화합니다.",
+   bg:"평가와 승진은 결과보다 과정이 신뢰받아야 합니다. 평가 기준·피드백·이의제기·승진 설명 절차를 강화하여 납득 가능한 인사운영을 요구하겠습니다.",
+   timeline:[{d:"30일",t:"평가·승진 관련 조합원 설문"},{d:"100일",t:"공정성 개선과제 발표"},{d:"6개월",t:"평가 피드백권·이의제기 절차 교섭 요구"},{d:"1년",t:"승진·평가 제도개선 노사협의체 추진"}],
+   demands:["평가기준 설명 강화","평가 결과 피드백권 보장","평가 이의제기 절차 개선","승진·보직 고충 접수창구 운영","불합리 사례 분석 공개","개선 요구안 정기 공개"],
+   metrics:["평가 피드백 제공률","평가·승진 고충 접수 건수","처리율","제도개선 반영 건수","평가제도 만족도 변화"]},
+  {no:"3호",icon:"🌱",color:"c-green",
+   title:"세대별 생애주기 복지제도",
+   short:"세대가 다르면 필요한 복지도 다릅니다. 각자의 삶에 맞는 복지를 만들겠습니다.",
+   bg:"우리 조직은 20대 후반부터 50대 중반까지 다양한 세대가 함께 일하고 있습니다. 모두에게 같은 복지가 아니라, 각자의 삶에 맞는 복지를 만들겠습니다.",
+   timeline:[{d:"30일",t:"세대별 복지 수요조사 실시"},{d:"100일",t:"세대별 복지 개선 방향 발표"},{d:"6개월",t:"선택형 복지 항목 개편 요구"},{d:"1년",t:"복지 이용률·만족도 공개 및 후속 개선"}],
+   demands:["청년·신규: 주거·자기계발·경력형성 지원","육아·돌봄 세대: 유연근무·가족돌봄 지원","중견직원: 건강·전문성 강화 지원","경력후반: 건강관리·은퇴준비 지원","선택형 복지 항목 개편 요구","복지 이용률·만족도 공개"],
+   metrics:["세대별 복지 만족도","복지 항목별 이용률","신규 복지 제안 건수","제안 반영률","미사용 복지포인트 비율"]},
+  {no:"4호",icon:"🗺️",color:"c-orange",
+   title:"지역근무 생활안정 지원 패키지",
+   short:"전국 13개 지역. 어디서 일하든 같은 보호를 받을 수 있도록 하겠습니다.",
+   bg:"우리 조직은 전국 13개 지역에 분포되어 있습니다. 지역 근무의 부담을 개인에게만 맡기지 않겠습니다. 어디서 일하든 같은 보호를 받을 수 있도록 하겠습니다.",
+   timeline:[{d:"30일",t:"지역근무 고충조사 실시"},{d:"100일",t:"지역근무 생활안정 과제 발표"},{d:"6개월",t:"주거·교통·정착 부담 완화 방안 교섭 요구"},{d:"1년",t:"지역근무 생활안정 지원 결과 공개"}],
+   demands:["지역근무 고충 접수·정기 분석","주거·교통·정착 부담 완화","가족동반·단신부임 지원기준 마련","장거리 이동·생활불편 요소 조사","지역근무자 건강·심리 지원 강화","희망 반영 절차 요구"],
+   metrics:["지역근무 고충 접수 건수","처리율","지역별 간담회 개최 횟수","생활안정 지원 반영 건수","지역근무 만족도 변화"]},
+  {no:"5호",icon:"⚡",color:"c-red",
+   title:"업무량 측정 기반 근무조건 개선",
+   short:"일이 많다는 말만 반복하지 않겠습니다. 업무량을 측정하고 근무조건을 개선합니다.",
+   bg:"일이 많다는 말만 반복하지 않겠습니다. 업무량을 측정하고, 근무조건 개선으로 연결하겠습니다. 초과근로·휴가·번아웃 문제를 데이터로 분석하겠습니다.",
+   timeline:[{d:"30일",t:"업무량·근무조건 실태조사 실시"},{d:"100일",t:"업무량 측정 1차 결과 공개"},{d:"6개월",t:"초과근로 관리·휴가 개선 교섭 요구"},{d:"1년",t:"근무조건 개선 성과 공개"}],
+   demands:["초과근로 관리 강화","휴가 사용 저해요인 개선","집중업무 기간 지원인력 요구","퇴근 후 연락 자제 가이드라인","직무스트레스·번아웃 대응","심리상담·회복지원 확대"],
+   metrics:["초과근로 추이","휴가사용률","업무량 고충 접수 건수","대체인력 반영 건수","직무스트레스 조사 결과"]},
+  {no:"6호",icon:"🏛️",color:"c-purple",
+   title:"조합원 참여형 위원회 설치",
+   short:"주제별·세대별·지역별로 의견을 모으는 5개 위원회를 만들겠습니다.",
+   bg:"노동조합이 더 많이 듣기 위해서는 구조가 필요합니다. 한두 사람이 듣는 노동조합이 아니라, 주제별·세대별·지역별로 의견을 모으는 노동조합을 만들겠습니다.",
+   timeline:[{d:"60일",t:"5개 위원회 구성 착수"},{d:"100일",t:"위원회 출범 및 첫 회의"},{d:"분기",t:"위원회별 분기 회의·활동보고 공개"},{d:"1년",t:"위원회 활동 성과 종합 공개"}],
+   demands:["인사·전보 공정성 위원회","세대공존·복지 위원회","지역근무·생활안정 위원회","근무조건·업무량 개선 위원회","소통·공개 혁신 위원회","분기 회의 + 활동보고 공개"],
+   metrics:["위원회별 접수 의견 수","검토 완료율","제도개선 반영 건수","회의 개최 횟수","활동보고 공개 횟수"]},
+  {no:"7호",icon:"📡",color:"c-teal",
+   title:"실시간 공개·소통 웹앱 운영",
+   short:"교섭·공약·의견·이행률을 조합원이 모바일에서 바로 확인할 수 있게 합니다.",
+   bg:"노동조합 활동을 조합원이 바로 볼 수 있게 하겠습니다. 안건·진행상황·의견·후속조치·이행률을 모바일에서 언제든 확인할 수 있도록 하겠습니다.",
+   timeline:[{d:"즉시",t:"웹앱 운영 개시·의견 접수창구 개설"},{d:"30일",t:"각종 고충 설문 실시 및 결과 공개"},{d:"100일",t:"공약 이행률 1차 공개"},{d:"매월",t:"공약 이행률 월 1회 정기 업데이트"}],
+   demands:["공약 이행률 대시보드","교섭 라이브 공개","의견광장 운영","위원회 활동 공개","관리자 편집 기능 (코딩 불필요)","결과뿐 아니라 과정 공개"],
+   metrics:["의견 접수 건수","처리율","공약 이행률 업데이트 횟수","조합원 참여율","만족도 변화"]}
+];
+
+/* ════ DEFAULT APP DATA ════ */
+const defaultData={
+  brandName:"중앙회노조 ON",
+  heroTitle:"조합원이 바로 보는 노동조합",
+  heroText:"감이 아니라 데이터로, 말이 아니라 절차로, 집행부가 아니라 조합원이 검증하는 노동조합을 만들겠습니다.",
+  liveTitle:"교섭 라이브",
+  liveLead:"안건 등록부터 협의·결과·후속조치까지 단계별로 공개합니다.",
+  voiceTitle:"언제든 말할 수 있는 공간",
+  voiceLead:"익명 또는 실명으로 의견을 남길 수 있습니다. 전보·인사·복지·근무조건 등 언제든 접수합니다.",
+  pledgeTitle:"공약 이행률",
+  pledgeLead:"완료·진행·계획·보류 사유를 조합원이 모바일에서 바로 확인할 수 있도록 공개합니다.",
+  roadmap100:[
+    {phase:"당선 즉시",items:["조합 운영 공개 원칙 선언","웹앱 기본 운영 개시","조합원 의견 접수창구 개설"]},
+    {phase:"취임 30일",items:["전보·인사·평가 고충 설문조사","세대별 복지 수요조사","지역근무 고충조사","업무량·근무조건 실태조사"]},
+    {phase:"취임 100일",items:["합리적 전보 기준 개선안 발표","인사·평가 공정성 개선과제 발표","세대별 복지 개선 방향 발표","공약 이행률 1차 공개"]},
+    {phase:"6개월",items:["전보 사전예고제·생활영향 심사제 교섭 요구","평가 피드백권·이의제기 절차 요구","선택형 복지 개편 요구","위원회 활동보고 공개"]},
+    {phase:"1년",items:["공약 이행률 종합보고","교섭 반영 결과 공개","제도개선 성과와 미이행 과제 공개","조합원 평가 및 후속 개선안 발표"]}
+  ],
+  live:[
+    {status:"진행중",title:"2026년 단체교섭 요구안 1차 정리",memo:"전보 기준·평가 피드백권·공약 공개 시스템 포함",date:"05.20"},
+    {status:"준비중",title:"전보 공정성 긴급 설문",memo:"전보 불만 유형 조사 및 분류",date:"05.22"},
+    {status:"진행중",title:"웹앱 의견광장 시범 운영",memo:"익명 제안·긴급 고충·1:1 상담 접수",date:"05.24"},
+    {status:"계획중",title:"5개 위원회 구성안 발표",memo:"전보·인사, 세대복지, 지역, 근무조건, 소통혁신",date:"05.30"}
+  ],
+  pledges:[
+    {title:"전보 공정성 개선안 (1호 공약)",percent:35,status:"진행중",memo:"설문 문항 구성 및 고충 유형 분류 준비"},
+    {title:"인사·평가·승진 공정성 (2호 공약)",percent:25,status:"준비중",memo:"피드백권·승진 기준 공개 요구안 정리"},
+    {title:"세대별 복지제도 (3호 공약)",percent:20,status:"계획중",memo:"수요조사 문항 설계 중"},
+    {title:"지역근무 생활안정 (4호 공약)",percent:20,status:"계획중",memo:"지역별 고충 조사 준비"},
+    {title:"업무량 근무조건 (5호 공약)",percent:30,status:"준비중",memo:"초과근로 현황 데이터 수집 준비"},
+    {title:"참여형 위원회 (6호 공약)",percent:40,status:"진행중",memo:"5개 위원회 구성안 마련 중"},
+    {title:"실시간 공개 웹앱 (7호 공약)",percent:70,status:"진행중",memo:"웹앱 운영 중·기능 지속 개선"}
+  ],
+  voices:[],
+  announcement:{show:false,type:"info",title:"공지사항",text:"내용을 입력해 주세요."}
+};
+
+const SK="union_campaign_v5",PK="union_admin_pw";
+let data=loadData(),currentAdminTab="home";
+
+function loadData(){
+  try{const r=localStorage.getItem(SK);if(!r) return structuredClone(defaultData);
+    const d={...structuredClone(defaultData),...JSON.parse(r)};
+    if(!d.announcement) d.announcement={...defaultData.announcement};
+    if(!d.voices) d.voices=[];return d;
+  }catch(e){return structuredClone(defaultData);}
+}
+function saveData(){localStorage.setItem(SK,JSON.stringify(data));}
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s??"").replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+function toast(msg){const t=document.createElement("div");t.className="toast";t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),1900);}
+function getAdminPw(){return localStorage.getItem(PK)||"2026";}
+function avgPledge(){if(!data.pledges?.length) return 0;return Math.round(data.pledges.reduce((a,p)=>a+(Number(p.percent)||0),0)/data.pledges.length);}
+
+/* ════ RENDER ════ */
+function render(){
+  ["brandName","heroTitle","heroText","liveTitle","liveLead","voiceTitle","voiceLead","pledgeTitle","pledgeLead"]
+    .forEach(k=>{if($(k)) $(k).textContent=data[k]||"";});
+  renderAnnouncement();
+  renderHomeQuickPledges();
+  renderHomeRoadmap();
+  renderAccordion();
+  renderLive();renderVoices();
+  renderPledgeOverall(avgPledge());renderPledges();
+}
+
+function renderAnnouncement(){
+  const ann=data.announcement,el=$("annBanner");if(!el) return;
+  if(!ann||!ann.show){el.classList.add("hidden");return;}
+  const icons={info:"📢",success:"✅",warn:"⚠️"};
+  el.className=`ann ann-${ann.type||"info"}`;
+  el.innerHTML=`<div class="ann-icon">${icons[ann.type]||"📢"}</div><div class="ann-body"><div class="ann-title">${esc(ann.title)}</div><div class="ann-text">${esc(ann.text)}</div></div>`;
+}
+
+function renderHomeQuickPledges(){
+  const el=$("homeQuickPledges");if(!el) return;
+  el.innerHTML=PLEDGES7.map((p,i)=>`
+    <div class="pq-card ${i===6?'wide':''}" data-goto-pledge="${i}">
+      <div class="pq-top"><span class="pq-no">${esc(p.no)}</span><span class="pq-icon">${p.icon}</span></div>
+      <div class="pq-title">${esc(p.title)}</div>
+      <div class="pq-short">${esc(p.short)}</div>
+      <div class="pq-more">상세 보기 →</div>
+    </div>`).join("");
+  document.querySelectorAll("[data-goto-pledge]").forEach(el=>el.onclick=()=>{
+    switchView("manifesto");
+    setTimeout(()=>openAccordion(Number(el.dataset.gotoPledge)),200);
+  });
+}
+
+function renderHomeRoadmap(){
+  const el=$("homeRoadmap");if(!el) return;
+  el.innerHTML=(data.roadmap100||[]).map(phase=>`
+    <div class="tl-big-card">
+      <div class="tl-big-phase">${esc(phase.phase)}</div>
+      <ul class="tl-big-items">${(phase.items||[]).map(it=>`<li class="tl-big-item">${esc(it)}</li>`).join("")}</ul>
+    </div>`).join("");
+}
+
+function renderAccordion(){
+  const el=$("accordionCards");if(!el) return;
+  el.innerHTML=PLEDGES7.map((p,i)=>`
+    <div class="ac-card ${p.color}" id="ac-${i}">
+      <div class="ac-head" onclick="toggleAccordion(${i})">
+        <div class="ac-no-badge">${esc(p.no)}</div>
+        <div class="ac-icon-large">${p.icon}</div>
+        <div class="ac-info">
+          <div class="ac-title">${esc(p.title)}</div>
+          <div class="ac-short">${esc(p.short)}</div>
+        </div>
+        <div class="ac-chevron" id="ac-chev-${i}">▼</div>
+      </div>
+      <div class="ac-body" id="ac-body-${i}">
+        <div class="ac-divider"></div>
+        <div class="det-sec">
+          <div class="det-label">추진 배경</div>
+          <div class="det-bg">${esc(p.bg)}</div>
+        </div>
+        <div class="det-sec">
+          <div class="det-label">단계별 실행계획</div>
+          <ul class="det-tl">${p.timeline.map(t=>`
+            <li class="det-tl-item">
+              <div class="det-tl-dot">${esc(t.d)}</div>
+              <div class="det-tl-right">
+                <div class="det-tl-period">${esc(t.d)}</div>
+                <div class="det-tl-text">${esc(t.t)}</div>
+              </div>
+            </li>`).join("")}</ul>
+        </div>
+        <div class="det-sec">
+          <div class="det-label">주요 요구사항</div>
+          <div class="det-chips">${p.demands.map(d=>`<span class="det-chip">${esc(d)}</span>`).join("")}</div>
+        </div>
+        <div class="det-sec" style="margin-bottom:0">
+          <div class="det-label">측정지표</div>
+          <ul class="det-metrics">${p.metrics.map(m=>`<li class="det-metric-item">${esc(m)}</li>`).join("")}</ul>
+        </div>
+      </div>
+    </div>`).join("");
+}
+
+function toggleAccordion(i){
+  const card=$(`ac-${i}`);if(!card) return;
+  const wasOpen=card.classList.contains("open");
+  // close all
+  PLEDGES7.forEach((_,j)=>{
+    const c=$(`ac-${j}`);if(c){c.classList.remove("open");}
+    const ch=$(`ac-chev-${j}`);if(ch) ch.textContent="▼";
+    const b=$(`ac-body-${j}`);if(b) b.style.display="none";
+  });
+  if(!wasOpen){
+    card.classList.add("open");
+    const ch=$(`ac-chev-${i}`);if(ch) ch.textContent="▲";
+    const b=$(`ac-body-${i}`);if(b) b.style.display="block";
+  }
+}
+
+function openAccordion(i){
+  // close all first
+  PLEDGES7.forEach((_,j)=>{
+    const c=$(`ac-${j}`);if(c) c.classList.remove("open");
+    const ch=$(`ac-chev-${j}`);if(ch) ch.textContent="▼";
+    const b=$(`ac-body-${j}`);if(b) b.style.display="none";
+  });
+  const card=$(`ac-${i}`);if(!card) return;
+  card.classList.add("open");
+  const ch=$(`ac-chev-${i}`);if(ch) ch.textContent="▲";
+  const b=$(`ac-body-${i}`);if(b) b.style.display="block";
+  setTimeout(()=>card.scrollIntoView({behavior:"smooth",block:"start"}),100);
+}
+
+function renderLive(){
+  $("liveBoard").innerHTML=(data.live||[]).map(x=>`
+    <div class="lv-item">
+      <div class="lv-hd"><span class="lv-title">${esc(x.title)}</span><span class="lv-date">${esc(x.date)}</span></div>
+      <div class="lv-badge"><span class="badge b-${esc(x.status)}">${esc(x.status)}</span></div>
+      <div class="lv-memo">${esc(x.memo)}</div>
+    </div>`).join("");
+}
+
+function renderVoices(){
+  const list=data.voices||[];
+  $("voiceList").innerHTML=list.length
+    ?list.map(v=>`<div class="vc-item">
+        <div class="vc-tags"><span class="pill">${esc(v.category)}</span><span class="pill">${esc(v.scope)}</span></div>
+        <div class="vc-text">${esc(v.text)}</div><div class="vc-time">${esc(v.date)}</div>
+        ${v.reply?`<div class="vc-reply"><div class="vc-reply-lbl">✉ 운영자 답변</div><div class="vc-reply-text">${esc(v.reply)}</div></div>`:""}
+      </div>`).join("")
+    :`<div class="empty">아직 접수된 의견이 없습니다.<br><small style="font-weight:400">위 양식으로 첫 번째 의견을 남겨보세요.</small></div>`;
+}
+
+function renderPledgeOverall(avg){
+  $("pledgeOverall").innerHTML=`<div class="pl-hero">
+    <div class="pl-hero-lbl">7대 공약 평균 이행률</div>
+    <div class="pl-hero-val">${avg}%</div>
+    <div class="pl-hero-sub">총 ${data.pledges?.length||0}개 공약 · 선거 후 실시간 업데이트 예정</div>
+  </div>`;
+}
+
+function renderPledges(){
+  $("pledgeList").innerHTML=(data.pledges||[]).map(p=>`
+    <div class="pl-item">
+      <div class="pl-head"><span class="pl-name">${esc(p.title)}</span>
+      <span class="badge b-${esc(p.status)}">${esc(p.status)}</span></div>
+      <div class="pl-bar"><div class="pl-bar-in" style="width:${Number(p.percent)||0}%"></div></div>
+      <div class="pl-foot"><span class="pl-pct">${Number(p.percent)||0}%</span><span>· ${esc(p.memo)}</span></div>
+    </div>`).join("");
+}
+
+/* ════ NAVIGATION ════ */
+function switchView(v){
+  document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));
+  const t=$("view-"+v);if(t) t.classList.add("active");
+  document.querySelectorAll(".bnav-btn").forEach(b=>b.classList.toggle("active",b.dataset.view===v));
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.addEventListener("click",e=>{
+  const nav=e.target.closest("[data-view]");if(nav&&!e.target.closest("[data-goto-pledge]")) switchView(nav.dataset.view);
+  const jump=e.target.closest("[data-view-jump]");if(jump) switchView(jump.dataset.viewJump);
+});
+
+/* ════ VOICE FORM ════ */
+$("voiceForm").addEventListener("submit",e=>{
+  e.preventDefault();const text=$("voiceText").value.trim();if(!text) return;
+  data.voices.unshift({category:$("voiceCategory").value,scope:$("voiceScope").value,text,date:new Date().toLocaleString("ko-KR"),reply:""});
+  $("voiceText").value="";saveData();renderVoices();toast("의견이 접수되었습니다 ✓");
+});
+
+/* ════ ADMIN ════ */
+const adminTabs=[
+  {key:"home",label:"🏠 홈"},
+  {key:"roadmap",label:"📅 100일 로드맵"},
+  {key:"live",label:"📡 교섭"},
+  {key:"pledges",label:"📊 이행률"},
+  {key:"voice",label:"💬 의견"},
+  {key:"announce",label:"📢 공지"},
+  {key:"settings",label:"⚙ 설정"}
+];
+const statusOpts=["진행중","준비중","완료","계획중","보류"];
+
+$("adminPw").addEventListener("keydown",e=>{if(e.key==="Enter") $("loginBtn").click();});
+$("loginBtn").addEventListener("click",()=>{
+  if($("adminPw").value===getAdminPw()){
+    $("loginBox").classList.add("hidden");$("adminPanel").classList.add("open");renderAdminTabs();renderAdminEditor();
+  }else toast("비밀번호가 맞지 않습니다");
+});
+
+function renderAdminTabs(){
+  $("adminTabs").innerHTML=adminTabs.map(t=>`<button class="a-tab ${t.key===currentAdminTab?"active":""}" data-admin-tab="${t.key}">${t.label}</button>`).join("");
+  document.querySelectorAll("[data-admin-tab]").forEach(b=>b.onclick=()=>{currentAdminTab=b.dataset.adminTab;renderAdminTabs();renderAdminEditor();});
+}
+
+function inF(label,key,type="text"){
+  const val=esc(data[key]||"");
+  return `<label class="flbl">${label}</label>${type==="textarea"?`<textarea class="adm-ta" data-key="${key}">${val}</textarea>`:`<input class="adm-in" data-key="${key}" value="${val}">`}`;
+}
+function arrEd(title,key,fields){
+  return `<div class="adm-block"><h4>${title}</h4><div id="edit-${key}">${(data[key]||[]).map((it,i)=>itmEd(key,it,i,fields)).join("")}</div><button class="btn-add" data-add="${key}">+ 항목 추가</button></div>`;
+}
+function itmEd(key,item,i,fields){
+  const flds=fields.map(f=>{
+    if(f.type==="range"){const pct=Number(item[f.name])||0;return `<label class="flbl">${f.label}</label><div class="range-wrap"><input type="range" min="0" max="100" value="${pct}" data-array="${key}" data-index="${i}" data-field="${f.name}"><div class="range-num" id="rn-${key}-${i}">${pct}%</div></div>`;}
+    if(f.type==="select"){return `<label class="flbl">${f.label}</label><select class="adm-sel" data-array="${key}" data-index="${i}" data-field="${f.name}">${(f.options||[]).map(o=>`<option ${o===item[f.name]?"selected":""}>${o}</option>`).join("")}</select>`;}
+    const isTa=f.type==="textarea";
+    return `<label class="flbl">${f.label}</label><${isTa?"textarea":"input"} class="${isTa?"adm-ta adm-ta-sm":"adm-in"}" data-array="${key}" data-index="${i}" data-field="${f.name}" ${!isTa?`value="${esc(item[f.name]||'')}"`:""}>${isTa?esc(item[f.name]||""):""}</${isTa?"textarea":"input"}>`;
+  }).join("");
+  return `<div class="itm-blk">${flds}<div class="itm-acts"><button class="btn-sm" data-up="${key}" data-index="${i}">↑</button><button class="btn-sm" data-down="${key}" data-index="${i}">↓</button><button class="btn-sm" data-copy="${key}" data-index="${i}">복사</button><button class="btn-sm" data-del="${key}" data-index="${i}" style="color:var(--red)">삭제</button></div></div>`;
+}
+
+/* roadmap100 특별 편집기 */
+function roadmapEditor(){
+  return `<div class="adm-block"><h4>100일 실행계획 단계</h4>
+    <div id="edit-roadmap100">${(data.roadmap100||[]).map((phase,pi)=>`
+      <div class="itm-blk">
+        <label class="flbl no-top">단계명</label>
+        <input class="adm-in" data-rm-phase="${pi}" data-rm-field="phase" value="${esc(phase.phase)}">
+        <label class="flbl">실행 항목 (각 줄 = 1개 항목)</label>
+        <textarea class="adm-ta" data-rm-phase="${pi}" data-rm-field="items">${(phase.items||[]).map(esc).join("\n")}</textarea>
+        <div class="itm-acts">
+          <button class="btn-sm" data-rm-del="${pi}" style="color:var(--red)">단계 삭제</button>
+        </div>
+      </div>`).join("")}
+    </div>
+    <button class="btn-add" id="addRmPhase">+ 단계 추가</button>
+  </div>`;
+}
+
+function renderAdminEditor(){
+  let h="";
+  switch(currentAdminTab){
+    case"home": h=`<div class="adm-block"><h4>홈 화면 텍스트</h4>
+      ${inF("브랜드명","brandName")}${inF("Hero 대제목","heroTitle")}${inF("Hero 설명","heroText","textarea")}</div>`;break;
+    case"roadmap": h=roadmapEditor();break;
+    case"live": h=`<div class="adm-block"><h4>교섭 라이브 소개</h4>${inF("제목","liveTitle")}${inF("설명","liveLead","textarea")}</div>
+      ${arrEd("교섭 항목","live",[{name:"status",label:"상태",type:"select",options:statusOpts},{name:"title",label:"제목"},{name:"memo",label:"설명",type:"textarea"},{name:"date",label:"날짜"}])}`;break;
+    case"pledges": h=`<div class="adm-block"><h4>이행률 소개</h4>${inF("제목","pledgeTitle")}${inF("설명","pledgeLead","textarea")}</div>
+      ${arrEd("이행률 항목","pledges",[{name:"title",label:"공약명"},{name:"percent",label:"이행률",type:"range"},{name:"status",label:"상태",type:"select",options:statusOpts},{name:"memo",label:"설명",type:"textarea"}])}`;break;
+    case"voice": h=`<div class="adm-block"><h4>의견광장 소개</h4>${inF("제목","voiceTitle")}${inF("설명","voiceLead","textarea")}</div>
+      <div class="adm-block"><h4>접수 의견 관리·답변</h4>
+      ${(data.voices||[]).length?(data.voices||[]).map((v,i)=>`<div class="itm-blk">
+        <div class="vc-tags" style="margin-bottom:8px"><span class="pill">${esc(v.category)}</span><span class="pill">${esc(v.scope)}</span></div>
+        <p style="font-size:14px;color:var(--ts);margin-bottom:6px;line-height:1.6">${esc(v.text)}</p>
+        <small style="color:var(--tt)">${esc(v.date)}</small>
+        <label class="flbl" style="margin-top:10px">운영자 답변</label>
+        <textarea class="adm-ta adm-ta-sm" data-voice-reply="${i}" placeholder="답변을 입력하면 의견광장에 표시됩니다.">${esc(v.reply||"")}</textarea>
+        <div class="itm-acts"><button class="btn-sm" data-voice-save="${i}">답변 저장</button><button class="btn-sm" data-voice-del="${i}" style="color:var(--red)">삭제</button></div>
+      </div>`).join(""):`<div class="empty">접수된 의견이 없습니다.</div>`}</div>`;break;
+    case"announce": h=`<div class="adm-block"><h4>홈 상단 공지 배너</h4>
+      <div class="toggle-row" style="margin-bottom:16px"><span class="toggle-lbl">배너 표시</span>
+        <label class="toggle"><input type="checkbox" id="annShow" ${data.announcement.show?"checked":""}><span class="toggle-slider"></span></label></div>
+      <label class="flbl no-top">유형</label>
+      <select class="adm-sel" id="annType">
+        <option value="info" ${data.announcement.type==="info"?"selected":""}>📢 일반(파랑)</option>
+        <option value="success" ${data.announcement.type==="success"?"selected":""}>✅ 완료(초록)</option>
+        <option value="warn" ${data.announcement.type==="warn"?"selected":""}>⚠ 주의(노랑)</option>
+      </select>
+      <label class="flbl">제목</label><input class="adm-in" id="annTitle" value="${esc(data.announcement.title)}">
+      <label class="flbl">내용</label><textarea class="adm-ta" id="annText">${esc(data.announcement.text)}</textarea>
+      <div style="margin-top:14px"><button class="btn-p" id="saveAnn">공지 저장·적용</button></div></div>`;break;
+    case"settings": h=`<div class="adm-block"><h4>🔑 비밀번호 변경</h4>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+        <label class="flbl no-top">현재 비밀번호</label><input class="adm-in" type="password" id="pwOld" placeholder="현재 비밀번호">
+        <label class="flbl">새 비밀번호 (4자 이상)</label><input class="adm-in" type="password" id="pwNew" placeholder="새 비밀번호">
+        <label class="flbl">새 비밀번호 확인</label><input class="adm-in" type="password" id="pwConfirm" placeholder="확인">
+        <button class="btn-p" id="changePwBtn">비밀번호 변경</button></div></div>
+      <div class="adm-block"><h4>💾 데이터 백업·복원</h4>
+      <p style="font-size:14px;color:var(--ts);margin-bottom:14px">JSON 파일로 내보내거나 복원할 수 있습니다.</p>
+      <button class="btn-g" id="exportBtn">📤 JSON 내보내기</button>
+      <div style="height:10px"></div>
+      <div class="file-input-wrap"><button class="btn-s" style="pointer-events:none">📥 JSON 불러오기</button><input type="file" id="importFile" accept=".json"></div></div>
+      <div class="adm-block"><h4 class="danger">⚠ 위험 구역</h4>
+      <p style="font-size:14px;color:var(--ts);margin-bottom:14px">모든 데이터가 초기화됩니다.</p>
+      <button class="btn-d" id="resetData2">전체 데이터 초기화</button></div>`;break;
+  }
+  $("adminEditor").innerHTML=h;
+  $("adminActions").classList.toggle("hidden",currentAdminTab==="settings");
+  bindEditorEvents();
+}
+
+function bindEditorEvents(){
+  document.querySelectorAll("[data-key]").forEach(el=>el.oninput=()=>{data[el.dataset.key]=el.value;render();});
+  document.querySelectorAll("[data-array]").forEach(el=>el.oninput=()=>{
+    const arr=data[el.dataset.array],idx=Number(el.dataset.index),f=el.dataset.field;
+    arr[idx][f]=el.type==="number"?Number(el.value):el.value;render();
+  });
+  document.querySelectorAll("input[type=range]").forEach(el=>{
+    const key=el.dataset.array,idx=Number(el.dataset.index),f=el.dataset.field;
+    el.oninput=()=>{data[key][idx][f]=Number(el.value);const rn=$(`rn-${key}-${idx}`);if(rn) rn.textContent=el.value+"%";render();};
+  });
+  // roadmap100 editors
+  document.querySelectorAll("[data-rm-phase]").forEach(el=>el.oninput=()=>{
+    const pi=Number(el.dataset.rmPhase),f=el.dataset.rmField;
+    if(!data.roadmap100[pi]) return;
+    if(f==="items") data.roadmap100[pi].items=el.value.split("\n").filter(x=>x.trim());
+    else data.roadmap100[pi][f]=el.value;
+    render();
+  });
+  document.querySelectorAll("[data-rm-del]").forEach(btn=>btn.onclick=()=>{
+    if(!confirm("이 단계를 삭제할까요?")) return;
+    data.roadmap100.splice(Number(btn.dataset.rmDel),1);renderAdminEditor();render();
+  });
+  const addRm=$("addRmPhase");
+  if(addRm) addRm.onclick=()=>{data.roadmap100.push({phase:"새 단계",items:["실행 항목을 입력하세요"]});renderAdminEditor();render();};
+  // array ops
+  document.querySelectorAll("[data-add]").forEach(btn=>btn.onclick=()=>{
+    const k=btn.dataset.add,s={title:"새 항목",text:"내용을 입력하세요."};
+    if(k==="live") Object.assign(s,{status:"계획중",memo:"설명",date:"날짜"});
+    if(k==="pledges") Object.assign(s,{percent:0,status:"계획중",memo:"설명"});
+    data[k].push(s);renderAdminEditor();render();
+  });
+  document.querySelectorAll("[data-del]").forEach(btn=>btn.onclick=()=>{if(!confirm("삭제할까요?")) return;data[btn.dataset.del].splice(Number(btn.dataset.index),1);renderAdminEditor();render();});
+  document.querySelectorAll("[data-copy]").forEach(btn=>btn.onclick=()=>{const k=btn.dataset.copy,i=Number(btn.dataset.index);data[k].splice(i+1,0,{...data[k][i]});renderAdminEditor();render();});
+  document.querySelectorAll("[data-up]").forEach(btn=>btn.onclick=()=>{const k=btn.dataset.up,i=Number(btn.dataset.index);if(i>0){[data[k][i-1],data[k][i]]=[data[k][i],data[k][i-1]];renderAdminEditor();render();}});
+  document.querySelectorAll("[data-down]").forEach(btn=>btn.onclick=()=>{const k=btn.dataset.down,i=Number(btn.dataset.index);if(i<data[k].length-1){[data[k][i+1],data[k][i]]=[data[k][i],data[k][i+1]];renderAdminEditor();render();}});
+  // voice ops
+  document.querySelectorAll("[data-voice-save]").forEach(btn=>btn.onclick=()=>{const i=Number(btn.dataset.voiceSave);const ta=document.querySelector(`[data-voice-reply="${i}"]`);if(ta){data.voices[i].reply=ta.value.trim();saveData();renderVoices();toast("답변이 저장되었습니다 ✓");}});
+  document.querySelectorAll("[data-voice-del]").forEach(btn=>btn.onclick=()=>{if(!confirm("삭제할까요?")) return;data.voices.splice(Number(btn.dataset.voiceDel),1);renderAdminEditor();render();});
+  // announce
+  const saveAnn=$("saveAnn");if(saveAnn) saveAnn.onclick=()=>{data.announcement={show:$("annShow").checked,type:$("annType").value,title:$("annTitle").value,text:$("annText").value};saveData();renderAnnouncement();toast("공지가 저장되었습니다 ✓");};
+  // settings
+  const cpw=$("changePwBtn");if(cpw) cpw.onclick=()=>{const o=$("pwOld").value,n=$("pwNew").value,c=$("pwConfirm").value;if(o!==getAdminPw()){toast("현재 비밀번호 오류");return;}if(n.length<4){toast("4자 이상 입력");return;}if(n!==c){toast("비밀번호 불일치");return;}localStorage.setItem(PK,n);$("pwOld").value=$("pwNew").value=$("pwConfirm").value="";toast("비밀번호 변경 완료 ✓");};
+  const exp=$("exportBtn");if(exp) exp.onclick=()=>{const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=`union_on_backup_${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(url);toast("백업 완료 ✓");};
+  const imp=$("importFile");if(imp) imp.onchange=(e)=>{const file=e.target.files[0];if(!file) return;const reader=new FileReader();reader.onload=(ev)=>{try{const parsed=JSON.parse(ev.target.result);if(confirm("불러온 데이터로 덮어쓸까요?")){data={...structuredClone(defaultData),...parsed};saveData();render();renderAdminEditor();toast("불러오기 완료 ✓");}}catch{toast("파일 형식 오류");}};reader.readAsText(file);};
+  const rd2=$("resetData2");if(rd2) rd2.onclick=()=>{if(confirm("초기화할까요?")){data=structuredClone(defaultData);saveData();render();renderAdminEditor();toast("초기화 완료");}};
+}
+
+$("saveAdmin").addEventListener("click",()=>{saveData();toast("저장되었습니다 ✓");});
+$("previewHome").addEventListener("click",()=>switchView("home"));
+$("resetData").addEventListener("click",()=>{if(confirm("초기화할까요?")){data=structuredClone(defaultData);saveData();render();renderAdminEditor();toast("초기화 완료");}});
+
+render();
+</script>
+</body>
+</html>
