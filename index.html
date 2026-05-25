@@ -79,13 +79,13 @@ button,input,textarea,select{font:inherit;cursor:pointer}
   background:none;border:none;color:var(--tt);transition:color .15s;}
 .bnav-btn.active{color:var(--pr)}
 .bnav-btn .ni{font-size:27px;line-height:1;transition:transform .2s;}.bnav-btn.active .ni{animation:bounceIn .4s ease}
-.bnav-btn .nl{font-size:11px;font-weight:700;letter-spacing:-.3px}
+.bnav-btn .nl{font-size:13px;font-weight:700;letter-spacing:-.3px}
 
 /* ─── WRAP ─── */
 .wrap{max-width:480px;margin:0 auto;padding:20px 20px 32px}
 
 /* ─── SECTION HEADING ─── */
-.sec-h{font-size:20px;font-weight:700;letter-spacing:-.5px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;}
+.sec-h{font-size:21px;font-weight:700;letter-spacing:-.5px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;}
 .sec-h::before{content:'';display:block;width:4px;height:22px;background:var(--pr);border-radius:99px;flex-shrink:0;}
 .divider{height:1px;background:var(--bd);margin:4px 0 20px}
 
@@ -117,24 +117,24 @@ button,input,textarea,select{font:inherit;cursor:pointer}
 .hero-photo-caption{display:flex;position:relative;z-index:1;margin-bottom:14px;
   background:rgba(0,0,0,.22);border-radius:10px;padding:7px 10px;}
 .hero-photo-person{flex:1;text-align:center}
-.hero-photo-role{font-size:10px;font-weight:600;opacity:.72;line-height:1.3}
-.hero-photo-name{font-size:14px;font-weight:800;letter-spacing:-.3px}
-.hero-h2{font-size:32px;font-weight:800;line-height:1.2;letter-spacing:-.8px;margin-bottom:18px;
+.hero-photo-role{font-size:12px;font-weight:600;opacity:.75;line-height:1.3}
+.hero-photo-name{font-size:15px;font-weight:800;letter-spacing:-.3px}
+.hero-h2{font-size:34px;font-weight:800;line-height:1.2;letter-spacing:-.8px;margin-bottom:18px;
   position:relative;z-index:1;animation:fadeUp .7s ease both;}
 .hero-btns{display:flex;gap:8px;position:relative;z-index:1;margin-bottom:20px;}
 .hbtn-w{flex:1;padding:14px 6px;background:#fff;color:var(--pr-d);border:none;
-  border-radius:var(--r-md);font-size:14px;font-weight:800;letter-spacing:-.2px;transition:transform .1s;}
+  border-radius:var(--r-md);font-size:15px;font-weight:800;letter-spacing:-.2px;transition:transform .1s;}
 .hbtn-w:active{transform:scale(.95)}
 .hbtn-y{flex:1;padding:14px 6px;background:#FBBF24;color:#78350F;border:none;
-  border-radius:var(--r-md);font-size:14px;font-weight:800;letter-spacing:-.2px;
+  border-radius:var(--r-md);font-size:15px;font-weight:800;letter-spacing:-.2px;
   animation:glowPulse 2.5s ease-in-out infinite;transition:transform .1s;}
 .hbtn-y:active{transform:scale(.95)}
 .hbtn-o{flex:1;padding:14px 6px;background:rgba(255,255,255,.18);color:#fff;
-  border:1.5px solid rgba(255,255,255,.4);border-radius:var(--r-md);font-size:14px;font-weight:700;letter-spacing:-.2px;transition:transform .1s;}
+  border:1.5px solid rgba(255,255,255,.4);border-radius:var(--r-md);font-size:15px;font-weight:700;letter-spacing:-.2px;transition:transform .1s;}
 .hbtn-o:active{transform:scale(.95)}
 .hero-pills{display:flex;flex-wrap:wrap;gap:7px;position:relative;z-index:1;margin-bottom:10px;}
 .hero-pill{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);
-  border-radius:99px;padding:7px 14px;font-size:13px;font-weight:700;}
+  border-radius:99px;padding:8px 17px;font-size:16px;font-weight:700;}
 .hero-pill-link{cursor:pointer;transition:background .15s,transform .1s;}
 .hero-pill-link:active{transform:scale(.93);background:rgba(255,255,255,.35);}
 .hero-pill:nth-child(1){animation:floatY 3.2s ease-in-out infinite}
@@ -142,7 +142,7 @@ button,input,textarea,select{font:inherit;cursor:pointer}
 .hero-pill:nth-child(3){animation:floatY 3.2s ease-in-out .8s infinite}
 .hero-pill:nth-child(4){animation:floatY 3.2s ease-in-out 1.2s infinite}
 .hero-pill:nth-child(5){animation:floatY 3.2s ease-in-out 1.6s infinite}
-.hero-tap-hint{font-size:12px;opacity:.65;font-weight:600;position:relative;z-index:1;margin-top:2px;letter-spacing:.1px;}
+.hero-tap-hint{font-size:14px;opacity:.65;font-weight:600;position:relative;z-index:1;margin-top:2px;letter-spacing:.1px;}
 
 /* ─── STATS ROW ─── */
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px;}
@@ -150,13 +150,13 @@ button,input,textarea,select{font:inherit;cursor:pointer}
   box-shadow:var(--sh);border:1px solid var(--bd);cursor:pointer;transition:transform .12s,border-color .15s;}
 .stat-card:active{transform:scale(.90);border-color:var(--pr);}
 .stat-card.bounce{animation:bounceIn .5s cubic-bezier(.22,1,.36,1)}
-.stat-num{font-size:24px;font-weight:800;color:var(--pr);letter-spacing:-.8px;line-height:1;margin-bottom:4px;}
+.stat-num{font-size:26px;font-weight:800;color:var(--pr);letter-spacing:-.8px;line-height:1;margin-bottom:4px;}
 .stat-unit{font-size:13px;font-weight:700}
-.stat-label{font-size:11px;font-weight:600;color:var(--tt);letter-spacing:-.2px;line-height:1.3}
+.stat-label{font-size:13px;font-weight:600;color:var(--tt);letter-spacing:-.2px;line-height:1.3}
 
 /* mn-header stats interactive */
 .mn-stat{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);
-  border-radius:var(--r-md);padding:8px 14px;font-size:13px;font-weight:700;
+  border-radius:var(--r-md);padding:9px 15px;font-size:15px;font-weight:700;
   cursor:pointer;transition:background .15s,transform .1s;user-select:none;}
 .mn-stat:active{transform:scale(.92);background:rgba(255,255,255,.32);}
 
@@ -164,11 +164,11 @@ button,input,textarea,select{font:inherit;cursor:pointer}
 .advantage-banner{background:var(--white);border-radius:var(--r-lg);
   border-top:3px solid var(--pr);border:1px solid var(--bd);border-top:3px solid var(--pr);
   padding:16px 14px;margin-bottom:16px;box-shadow:var(--sh);}
-.adv-top{font-size:11px;font-weight:700;color:var(--pr);letter-spacing:.5px;text-transform:uppercase;margin-bottom:12px;}
+.adv-top{font-size:13px;font-weight:700;color:var(--pr);letter-spacing:.5px;text-transform:uppercase;margin-bottom:12px;}
 .adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);}
 .adv-cell{background:var(--white);text-align:center;padding:12px 6px;}
-.adv-big{font-size:22px;font-weight:800;color:var(--pr);letter-spacing:-.5px;line-height:1.1;margin-bottom:3px;}
-.adv-small{font-size:11px;color:var(--tt);font-weight:600;line-height:1.35;}
+.adv-big{font-size:24px;font-weight:800;color:var(--pr);letter-spacing:-.5px;line-height:1.1;margin-bottom:3px;}
+.adv-small{font-size:13px;color:var(--tt);font-weight:600;line-height:1.35;}
 
 /* ─── PLEDGE QUICK GRID ─── */
 .pq-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -180,11 +180,11 @@ button,input,textarea,select{font:inherit;cursor:pointer}
 .pq-accent{height:4px;border-radius:0}
 .pq-body{padding:15px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
 .pq-top{display:flex;align-items:center;justify-content:space-between}
-.pq-no{font-size:11px;font-weight:700;padding:4px 9px;border-radius:99px;letter-spacing:-.1px}
+.pq-no{font-size:12px;font-weight:700;padding:5px 11px;border-radius:99px;letter-spacing:-.1px}
 .pq-icon{font-size:26px;line-height:1}
-.pq-title{font-size:14px;font-weight:700;color:var(--tp);letter-spacing:-.3px;line-height:1.35}
-.pq-short{font-size:12px;color:var(--tt);line-height:1.45;font-weight:500}
-.pq-more{font-size:12px;font-weight:700;margin-top:2px}
+.pq-title{font-size:15px;font-weight:700;color:var(--tp);letter-spacing:-.3px;line-height:1.35}
+.pq-short{font-size:13px;color:var(--tt);line-height:1.5;font-weight:500}
+.pq-more{font-size:13px;font-weight:700;margin-top:4px}
 .pq-card.wide{grid-column:1/-1;flex-direction:row}
 .pq-card.wide .pq-accent{width:4px;height:auto;border-radius:0}
 .pq-card.wide .pq-body{flex-direction:row;align-items:center;padding:16px 14px;gap:12px}
@@ -219,7 +219,7 @@ button,input,textarea,select{font:inherit;cursor:pointer}
   border-radius:var(--r-2xl);padding:22px 20px;margin-bottom:16px;color:#fff;}
 .mn-header-tag{font-size:12px;font-weight:700;opacity:.75;letter-spacing:.5px;margin-bottom:8px;text-transform:uppercase}
 .mn-header-h{font-size:24px;font-weight:800;letter-spacing:-.7px;margin-bottom:6px}
-.mn-header-p{font-size:14px;opacity:.85;line-height:1.6}
+.mn-header-p{font-size:15px;opacity:.85;line-height:1.65}
 .mn-header-stats{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
 .mn-stat{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);
   border-radius:var(--r-md);padding:8px 14px;font-size:13px;font-weight:700}
@@ -234,8 +234,8 @@ button,input,textarea,select{font:inherit;cursor:pointer}
   display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
 .ac-icon-large{font-size:31px;line-height:1;flex-shrink:0}
 .ac-info{flex:1;min-width:0}
-.ac-title{font-size:17px;font-weight:700;letter-spacing:-.4px;margin-bottom:4px;line-height:1.35}
-.ac-short{font-size:14px;color:var(--ts);line-height:1.5}
+.ac-title{font-size:18px;font-weight:700;letter-spacing:-.4px;margin-bottom:4px;line-height:1.35}
+.ac-short{font-size:15px;color:var(--ts);line-height:1.55}
 .ac-chevron{font-size:14px;color:var(--tt);flex-shrink:0;transition:transform .25s,color .2s;}
 .ac-card.open .ac-chevron{transform:rotate(180deg);color:var(--pr)}
 .ac-body{display:none;padding:0 18px 20px}
@@ -247,7 +247,7 @@ button,input,textarea,select{font:inherit;cursor:pointer}
 .det-label{font-size:12px;font-weight:700;color:var(--tt);letter-spacing:.6px;
   text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
 .det-label::before{content:'';display:block;width:3px;height:12px;background:currentColor;border-radius:99px}
-.det-bg{font-size:15px;color:var(--ts);line-height:1.75;background:var(--g50);
+.det-bg{font-size:16px;color:var(--ts);line-height:1.75;background:var(--g50);
   border-radius:var(--r-md);padding:16px;border-left:3px solid var(--pr);}
 .det-tl{list-style:none}
 .det-tl-item{display:flex;gap:12px;padding-bottom:16px;position:relative}
@@ -256,12 +256,12 @@ button,input,textarea,select{font:inherit;cursor:pointer}
   font-size:10px;font-weight:700;position:relative;z-index:1;flex-shrink:0;}
 .det-tl-right{padding-top:4px}
 .det-tl-period{font-size:12px;font-weight:700;margin-bottom:2px}
-.det-tl-text{font-size:15px;font-weight:600;letter-spacing:-.3px;color:var(--tp)}
+.det-tl-text{font-size:16px;font-weight:600;letter-spacing:-.3px;color:var(--tp)}
 .det-chips{display:flex;flex-wrap:wrap;gap:8px}
 .det-chip{background:var(--g100);color:var(--ts);border-radius:var(--r-sm);
-  padding:7px 13px;font-size:14px;font-weight:600;border:1px solid var(--bd);line-height:1.3}
+  padding:8px 14px;font-size:15px;font-weight:600;border:1px solid var(--bd);line-height:1.3}
 .det-metrics{list-style:none;display:flex;flex-direction:column;gap:9px}
-.det-metric-item{display:flex;align-items:center;gap:9px;font-size:15px;color:var(--ts)}
+.det-metric-item{display:flex;align-items:center;gap:9px;font-size:16px;color:var(--ts)}
 .det-metric-item::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--pr);flex-shrink:0}
 
 /* ─── ACC COLOR VARIANTS ─── */
@@ -305,8 +305,8 @@ button,input,textarea,select{font:inherit;cursor:pointer}
 .pledge-link-card{background:linear-gradient(135deg,var(--pr-l),var(--blue-l));border:1.5px solid var(--pr-xl);
   border-radius:var(--r-lg);padding:18px 16px;margin-top:8px;display:flex;align-items:center;gap:14px;cursor:pointer}
 .plc-icon{font-size:36px}.plc-body{flex:1}
-.plc-title{font-size:15px;font-weight:800;letter-spacing:-.4px;margin-bottom:3px}
-.plc-sub{font-size:13px;color:var(--ts)}.plc-arrow{font-size:18px;color:var(--pr)}
+.plc-title{font-size:16px;font-weight:800;letter-spacing:-.4px;margin-bottom:4px}
+.plc-sub{font-size:14px;color:var(--ts)}.plc-arrow{font-size:18px;color:var(--pr)}
 
 /* ─── ROADMAP ─── */
 .rm-wrap{position:relative;padding-left:0}
@@ -314,20 +314,20 @@ button,input,textarea,select{font:inherit;cursor:pointer}
   box-shadow:var(--sh);margin-bottom:10px;border-left:4px solid var(--pr);border:1px solid var(--bd);border-left:4px solid var(--pr);
   cursor:pointer;transition:transform .12s;}
 .tl-big-card:active{transform:scale(.98);}
-.tl-big-phase{font-size:14px;font-weight:700;color:var(--pr-d);background:var(--pr-l);
+.tl-big-phase{font-size:15px;font-weight:700;color:var(--pr-d);background:var(--pr-l);
   border-radius:var(--r-sm);padding:6px 13px;display:inline-block;margin-bottom:13px}
 .tl-big-items{list-style:none;display:flex;flex-direction:column;gap:9px}
-.tl-big-item{font-size:15px;color:var(--ts);display:flex;align-items:flex-start;gap:8px;line-height:1.55}
+.tl-big-item{font-size:16px;color:var(--ts);display:flex;align-items:flex-start;gap:8px;line-height:1.55}
 .tl-big-item::before{content:'→';color:var(--pr);font-weight:700;flex-shrink:0;margin-top:1px}
 
 /* ─── LIVE BOARD ─── */
 .lv-item{background:var(--white);border-radius:var(--r-lg);padding:20px 18px;margin-bottom:10px;box-shadow:var(--sh);border:1px solid var(--bd);}
 .lv-hd{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;gap:8px}
-.lv-title{font-size:17px;font-weight:700;letter-spacing:-.4px;flex:1;line-height:1.4}
+.lv-title{font-size:18px;font-weight:700;letter-spacing:-.4px;flex:1;line-height:1.4}
 .lv-date{font-size:13px;color:var(--tt);white-space:nowrap;margin-top:2px;font-weight:600}
-.lv-badge{margin-bottom:9px}.lv-memo{font-size:15px;color:var(--ts);line-height:1.6}
+.lv-badge{margin-bottom:9px}.lv-memo{font-size:16px;color:var(--ts);line-height:1.65}
 .badge{display:inline-flex;align-items:center;justify-content:center;
-  padding:4px 11px;border-radius:99px;font-size:13px;font-weight:700;white-space:nowrap;}
+  padding:5px 13px;border-radius:99px;font-size:14px;font-weight:700;white-space:nowrap;}
 .b-진행중{background:var(--pr-l);color:var(--pr-d)}.b-완료{background:var(--green-l);color:var(--green)}
 .b-준비중{background:var(--orange-l);color:var(--orange)}.b-계획중{background:var(--purple-l);color:var(--purple)}
 .b-보류{background:var(--red-l);color:var(--red)}
@@ -341,17 +341,17 @@ button,input,textarea,select{font:inherit;cursor:pointer}
 .pl-hero-sub{font-size:14px;opacity:.75}
 .pl-item{background:var(--white);border-radius:var(--r-lg);padding:20px 18px;margin-bottom:10px;box-shadow:var(--sh);border:1px solid var(--bd);}
 .pl-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:13px}
-.pl-name{font-size:17px;font-weight:700;letter-spacing:-.4px;flex:1;line-height:1.4}
+.pl-name{font-size:18px;font-weight:700;letter-spacing:-.4px;flex:1;line-height:1.4}
 .pl-bar{background:var(--g100);border-radius:99px;height:10px;overflow:hidden;margin-bottom:10px}
 .pl-bar-in{height:100%;background:linear-gradient(90deg,var(--pr-d),var(--pr));border-radius:99px;
   transition:width .8s cubic-bezier(.22,1,.36,1);animation:barGrow .8s cubic-bezier(.22,1,.36,1)}
-.pl-foot{display:flex;align-items:center;gap:8px;font-size:15px;color:var(--ts)}
+.pl-foot{display:flex;align-items:center;gap:8px;font-size:16px;color:var(--ts)}
 .pl-pct{font-size:18px;font-weight:800;color:var(--tp)}
 
 /* ─── VOICE ─── */
 .form-card{background:var(--white);border-radius:var(--r-lg);padding:22px 20px;margin-bottom:16px;box-shadow:var(--sh);border:1px solid var(--bd);}
 .form-row{margin-bottom:16px}
-.f-lbl{display:block;font-size:15px;font-weight:700;color:var(--ts);margin-bottom:8px}
+.f-lbl{display:block;font-size:16px;font-weight:700;color:var(--ts);margin-bottom:8px}
 .f-sel,.f-ta{width:100%;padding:15px 16px;border:1.5px solid var(--bd);border-radius:var(--r-md);
   font-size:16px;color:var(--tp);background:var(--white);outline:none;transition:border-color .15s;-webkit-appearance:none;}
 .f-sel:focus,.f-ta:focus{border-color:var(--pr)}
@@ -359,7 +359,7 @@ button,input,textarea,select{font:inherit;cursor:pointer}
 .vc-item{background:var(--white);border-radius:var(--r-lg);padding:20px 18px;margin-bottom:10px;box-shadow:var(--sh);border:1px solid var(--bd);}
 .vc-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}
 .pill{background:var(--pr-l);color:var(--pr-d);border-radius:99px;padding:5px 12px;font-size:13px;font-weight:700}
-.vc-text{font-size:16px;color:var(--tp);line-height:1.7}.vc-time{font-size:13px;color:var(--tt);margin-top:8px}
+.vc-text{font-size:17px;color:var(--tp);line-height:1.7}.vc-time{font-size:14px;color:var(--tt);margin-top:8px}
 .vc-reply{margin-top:14px;padding:14px 16px;background:var(--pr-l);border-radius:var(--r-md);border-left:3px solid var(--pr);}
 .vc-reply-lbl{font-size:13px;font-weight:700;color:var(--pr-d);margin-bottom:5px}
 .vc-reply-text{font-size:15px;color:var(--ts);line-height:1.65}
@@ -526,7 +526,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 
     <!-- 경쟁 우위 강조 배너 -->
     <div class="advantage-banner reveal stag2">
-      <div class="adv-top">✦ 왜 2기호 공약이 다른가요?</div>
+      <div class="adv-top">✦ 2기호 공약이 다른 이유</div>
       <div class="adv-grid">
         <div class="adv-cell">
           <div class="adv-big">5단계</div>
@@ -548,7 +548,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
       <div class="plc-icon">📊</div>
       <div class="plc-body">
         <div class="plc-title">공약 이행률 확인</div>
-        <div class="plc-sub">당선 후 공약별 진행 현황을 실시간 공개합니다</div>
+        <div class="plc-sub">취임 후 공약별 이행 현황을 조합원에게 공개합니다</div>
       </div>
       <div class="plc-arrow">→</div>
     </div>
@@ -592,7 +592,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
       <div class="plc-icon">📊</div>
       <div class="plc-body">
         <div class="plc-title">공약 이행률 확인</div>
-        <div class="plc-sub">당선 후 공약별 진행 현황을 실시간 공개합니다</div>
+        <div class="plc-sub">취임 후 공약별 이행 현황을 조합원에게 공개합니다</div>
       </div>
       <div class="plc-arrow">→</div>
     </div>
@@ -692,97 +692,168 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 </nav>
 
 <script>
-/* ════ 공약 데이터 ════ */
+/* ════ 공약 데이터 (PDF 기반 정확한 내용) ════ */
 const PLEDGES7=[
   {no:"1호",icon:"🎯",color:"c-teal",qc:"ac-teal",
    title:"중앙회야 중심 잡자!",
-   short:"대금고 과잉지원 투쟁·정치개입 차단·품위 있는 지도기관 회복",
-   bg:"중앙회의 합리적 수준 금고지원으로 지속 가능한 삶의 터전을 보장합니다. 고유업무에 금고 등 부당한 정치 입김을 차단하여 업무의 성취감과 예측 가능성을 확보하겠습니다. 각종 대내외 행사에 본지부 인력 동원도 금지하겠습니다.",
-   timeline:[{d:"즉시",t:"과잉·부당지원 투쟁 선언"},{d:"30일",t:"정치적 개입 금지 요구안 제출"},{d:"100일",t:"지도기관 품위 회복 프로토콜 시행"},{d:"6개월",t:"인력동원 금지·소모성 민원 분산 제도화"},{d:"1년",t:"성과 공개 및 후속 투쟁 방향 발표"}],
-   demands:["대금고 과잉·부당지원 투쟁 전개","중앙회 직원 고유업무 정치적 개입 금지","대내외 행사 인력 동원 금지","금고 소모성 질의·민원 체계적 분산","대금고 지도기관으로서 품위 회복"],
-   metrics:["부당지원 투쟁 건수","정치개입 차단 성과","인력동원 제로화 달성률","조합원 직무 성취감 변화"]},
+   short:"대금고 과잉·부당지원 투쟁·정치개입 금지·지도기관 품위 회복",
+   bg:"중앙회의 합리적 수준 금고지원으로 지속 가능한 삶의 터전을 보장합니다. 고유업무에 금고 등 부당한 정치 입김을 차단하여 업무의 성취감 및 예측 가능성을 확보하겠습니다. 각종 대내외 행사에 본지부 인력 동원을 금지하고, 금고 소모성 질의·민원을 효과적·체계적으로 분산하여 효율적인 지도업무를 지원하겠습니다.",
+   timeline:[
+     {d:"당선 즉시",t:"대금고 과잉·부당지원 투쟁 요구안 수립"},
+     {d:"취임 30일",t:"정치적 개입 금지 요구안 공식 제출 기획"},
+     {d:"취임 100일",t:"인력동원 금지·소모성 민원 분산 방안 수립"},
+     {d:"6개월",t:"교섭 경과 보고 및 후속 투쟁 방향 계획 수립"},
+     {d:"1년",t:"공약 이행 결과 공개 및 차기 요구안 수립"}
+   ],
+   demands:["대금고 과잉·부당지원 투쟁 전개","중앙회 직원 고유업무에 금고 등 정치적 개입 금지","각종 대내외 행사에 본지부 인력 동원 금지","금고 소모성 질의·민원 효과적·체계적 분산","대금고 지도기관으로서 품위 회복"],
+   metrics:["부당지원 관련 교섭 요구 건수","정치개입 금지 협약 체결 여부","인력동원 금지 조항 반영 여부","소모성 민원 분산 체계 구축 여부"]},
   {no:"2호",icon:"💰",color:"c-green",qc:"ac-green",
    title:"모든 일잘러가 대우받는 중앙회",
-   short:"합리적 급여인상·성과급 500%·퇴직금누진제·스트레스 0 근무여건",
-   bg:"당해년도 인건비 인상률을 최소 전년도 금고배당율 이상으로 제도화하겠습니다. 리프레쉬 수당 신설, 최대 성과급 500% 추진, 퇴직금누진제 도입을 통해 남다른 노력에 남다른 보상이 따르는 중앙회를 만들겠습니다.",
-   timeline:[{d:"즉시",t:"합리적 급여인상 요구안 제출"},{d:"30일",t:"리프레쉬·특수업무 수당 신설 요구"},{d:"100일",t:"성과급 300→500% 교섭 착수"},{d:"6개월",t:"퇴직금누진제·재택근무 도입 추진"},{d:"1년",t:"근무조건 개선 성과 종합 공개"}],
-   demands:["인건비 인상률 전년도 금고배당율 이상 제도화","리프레쉬 수당 신설 (연 1회)","최대 성과급 300→500% 추진","퇴직금누진제 도입 추진","팀장·경영지도인 수당 신설","대금고 질의답변·민원 특수수당 신설","악성 민원 근무자 보호조치","주 1회 가정의 날 1시간 단축근무","생일 반차·결혼휴가 2주 확대","재택근무 연간 10일 활성화"],
-   metrics:["인건비 인상률 달성","성과급 지급률","재택근무 활용일수","휴가 사용률","직무만족도 변화"]},
+   short:"합리적 급여인상·성과급 500%·퇴직금누진제·스트레스 제로 근무여건",
+   bg:"당해년도 인건비 인상률을 최소 전년도 금고배당율 이상으로 제도화하겠습니다. 리프레쉬 수당 신설(연 1회), 최대 성과급 300→500% 추진, 퇴직금누진제 도입을 추진합니다. 주 1회 가정의 날 단축근무, 생일 반차·결혼휴가 2주 확대, 재택근무 연간 10일 등 일하고 싶은 환경을 만들겠습니다.",
+   timeline:[
+     {d:"당선 즉시",t:"합리적 급여인상 교섭 요구안 수립 착수"},
+     {d:"취임 30일",t:"리프레쉬 수당·특수업무 수당 신설 요구안 기획"},
+     {d:"취임 100일",t:"단체교섭 안건 최종 수립 (성과급·퇴직금누진제 포함)"},
+     {d:"6개월",t:"가정의 날·생일 반차·재택근무 도입 교섭 추진"},
+     {d:"1년",t:"교섭 결과 공개 및 미이행 항목 후속 계획 수립"}
+   ],
+   demands:["당해년도 인건비 인상률 최소 전년도 금고배당율 이상 제도화","리프레쉬 수당 신설 (연 1회 실질적 리프레쉬 보장)","최대 성과급 300→500% 추진","퇴직금누진제 도입 추진","팀장 수당·경영지도인 수당 신설","대금고 질의답변·민원처리 수당 신설","PM업무·규정개정·입찰 등 특수업무 수당 신설","악성 민원에 대한 근무자 보호조치","주 1회 가정의 날 1시간 단축근무 / 대체휴가제","생일 반차휴가 / 결혼휴가 2주로 확대","입사 3년차 특별 리프레쉬 휴가 / 2년 1회 이사 휴가","휴가 증여제도 도입","스마트워크 활용 재택근무 연간 10일 활성화"],
+   metrics:["인건비 인상률 금고배당율 이상 달성 여부","성과급 인상 교섭 반영 여부","특수업무 수당 신설 협약 체결 여부","휴가·근무제도 개선 반영 여부"]},
   {no:"3호",icon:"❤️",color:"c-orange",qc:"ac-orange",
    title:"복지는 갓금중이지~",
    short:"가족 검진·학원비·통신비·스포츠티켓·리무진·상조 완전체 복지",
-   bg:"조합원과 그 가족 모두가 혜택을 체감하는 복지를 만들겠습니다. 신입·승진 직원 꽃배달 및 출근 리무진 서비스부터, 온가족 스포츠·뮤지컬 티켓, 유명호텔 휴양프로그램까지 일상에서 '중앙회 직원이어서 좋다'는 말이 나오게 하겠습니다.",
-   timeline:[{d:"즉시",t:"신입·승진 꽃배달·리무진서비스 시행"},{d:"30일",t:"복지 수요조사 실시"},{d:"100일",t:"교육 포인트·통신비 현실화 교섭"},{d:"6개월",t:"온가족 티켓·휴양프로그램 시행"},{d:"1년",t:"특별위로금·상조서비스 제도화"}],
-   demands:["가족 검진강화 / 자녀(초중고) 학원비 지원","자격증 공부 교육 포인트(머니) 제공","이동통신비 보전 현실화","온가족 스포츠관람권 및 뮤지컬 티켓 지급","유명호텔 연계 온가족 휴양프로그램","신입·승진직원 꽃배달 및 출근 리무진서비스","재직중 사망·중증장해 특별위로금 대폭 강화","장례시 상조서비스·상조물품 확대"],
-   metrics:["복지 항목별 이용률","복지 만족도 점수","신규 복지 수혜 인원","상조서비스 제도화 달성"]},
+   bg:"조합원과 그 가족 모두가 혜택을 체감하는 복지를 만들겠습니다. 가족 검진 강화와 초중고 자녀 학원비 지원, 이동통신비 보전 현실화, 온가족 스포츠관람권 및 뮤지컬 티켓 지급, 신입·승진직원 꽃배달 및 출근 리무진서비스 등 일상에서 '중앙회 직원이어서 좋다'는 말이 나오게 하겠습니다.",
+   timeline:[
+     {d:"당선 즉시",t:"신입·승진직원 꽃배달·리무진서비스 도입 요구안 마련"},
+     {d:"취임 30일",t:"복지 수요조사 실시 기획 및 우선순위 수립"},
+     {d:"취임 100일",t:"교육 포인트·통신비 현실화·온가족 복지 교섭 요구안 수립"},
+     {d:"6개월",t:"온가족 티켓·휴양프로그램 도입 협의 착수"},
+     {d:"1년",t:"특별위로금 강화·상조서비스 제도화 방안 수립"}
+   ],
+   demands:["가족 검진 강화 / 미래세대(초중고 자녀) 학원비 지원","특정 자격증 공부 등록시 교육 포인트(머니) 제공 (스터디카페·인강 활용)","이동통신비 보전 현실화","온가족 스포츠관람권 및 뮤지컬 등 티켓 지급","유명호텔 등 연계 온가족 휴양프로그램 마련","신입직원·승진직원 꽃배달 및 출근 리무진서비스 제공","재직중 사망·중증장해시 특별위로금 대폭 강화","장례시 상조서비스 추진·상조물품 확대"],
+   metrics:["복지 항목별 협의·도입 현황","복지 수요조사 반영률","신규 복지 수혜 인원","상조서비스 제도화 달성 여부"]},
   {no:"4호",icon:"💻",color:"c-purple",qc:"ac-purple",
    title:"센터야 반갑다! IT를 출근 맛집으로!",
-   short:"사내카페·MG IT의 날·장비지원·재택접속·냉난방자율·야간 택시비",
-   bg:"IT센터가 일하기 좋은 공간이 될 수 있도록 환경을 바꾸겠습니다. 사내카페 설치, 층별 냉난방 자율 운영, 야간 작업 택시비 지원 등 IT 직원이 자랑스럽게 출근하고 싶은 공간을 만들겠습니다.",
-   timeline:[{d:"즉시",t:"IT 전용 의견수렴 창구 개설"},{d:"30일",t:"사내카페 설치·냉난방 자율화 추진"},{d:"100일",t:"MG IT의 날 제정·직원참여형 인사협의체"},{d:"6개월",t:"IT장비 지원·재택접속 환경 구축"},{d:"1년",t:"야간 택시비·IT 근무환경 종합 성과"}],
-   demands:["IT센터 내 사내카페 조기 설치","직원참여형 IT인사추진협의체 마련","'MG IT의 날' 제정 (소통·단합·힐링)","IT장비 구매비용 주기적 지원","긴급장애 재택(원격) 접속 환경 지원","야간 작업 출근 시 교통비(택시비) 지원","IT센터 층별 냉난방 자율 운영","IT 직원 전용 의견수렴 창구"],
-   metrics:["IT 의견창구 활용률","장비 지원 수혜 건수","MG IT의 날 참여율","IT 직원 만족도"]},
+   short:"사내카페·MG IT의 날·IT장비 지원·재택접속·냉난방 자율·야간 택시비",
+   bg:"IT센터가 일하기 좋은 공간이 될 수 있도록 환경을 바꾸겠습니다. 사내카페 조기 설치, 직원참여형 IT인사추진협의체 마련, MG IT의 날 제정, IT장비 구매비용 지원, 긴급장애 재택접속 환경 지원, 야간 작업 택시비 지원, 층별 냉난방 자율 운영, IT 직원 전용 의견수렴 창구를 마련하겠습니다.",
+   timeline:[
+     {d:"당선 즉시",t:"IT 직원 전용 의견수렴 창구 개설 계획 수립"},
+     {d:"취임 30일",t:"사내카페 설치 요구·냉난방 자율화 방안 기획"},
+     {d:"취임 100일",t:"MG IT의 날 제정 기획·직원참여형 인사협의체 구성 방안 수립"},
+     {d:"6개월",t:"IT장비 지원·재택접속 환경 구축 협의 착수"},
+     {d:"1년",t:"야간 택시비·IT 근무환경 개선 결과 공개"}
+   ],
+   demands:["IT센터 내 사내카페 조기 설치","직원참여형 IT인사추진협의체 마련","'MG IT의 날' 제정하여 소통·단합 및 힐링 데이 추진","주기적으로 본인 선호 업무용 IT장비 구매비용 지원","긴급 장애 대응을 위한 원격(재택) 접속 환경 지원","야간 작업 출근 시 교통비(택시비) 지원","IT센터 층별 냉난방 자율 운영 환경 마련","IT 직원 전용 의견수렴 창구 마련"],
+   metrics:["IT 전용 의견창구 개설 여부","사내카페 설치 협의 진행 여부","MG IT의 날 제정 협약 여부","장비 지원 예산 반영 여부"]},
   {no:"5호",icon:"🗺️",color:"c-blue",qc:"ac-blue",
    title:"이제 금고에만 집중하세요! 지역본부 검사원 특화",
-   short:"출장비 현실화·법인대리운전·귀가여비·주차비·결과론적 징계 금지",
-   bg:"현장을 뛰는 검사원의 수고를 제대로 보상하겠습니다. 검사 후 사고에 대한 결과론적 징계를 없애고, 출장비 현실화, 법인대리운전 이용, 장기 출장시 귀가 여비 보전 등 실질적인 현장 지원을 강화하겠습니다.",
-   timeline:[{d:"즉시",t:"검사원 고충 수렴 창구 개설"},{d:"30일",t:"출장비 현실화 교섭 요구"},{d:"100일",t:"법인대리운전 이용 제도화"},{d:"6개월",t:"장기검사 귀가 여비·주차비 지원"},{d:"1년",t:"결과론적 징계 금지 협약 체결"}],
-   demands:["출장비 현실화 (차량감가·톨비 지원)","지역담당 일정 횟수 법인대리운전 이용","검사후 사고발생시 결과론적 징계 금지","1주일 이상 장기검사 시 기혼자 귀가 여비","출장시 장기주차비 지원","검사원 근무환경 종합 개선"],
-   metrics:["출장비 현실화 달성률","법인대리운전 이용 건수","불합리 징계 개선 건수","검사원 만족도"]},
+   short:"출장비 현실화·법인대리운전·귀가여비·장기주차비·결과론적 징계 금지",
+   bg:"현장을 뛰는 검사원의 수고를 제대로 보상하겠습니다. 출장비 현실화(차량감가·톨비 지원), 법인대리운전 이용, 1주일 이상 장기 검사시 기혼자 귀가 여비 보전, 장기주차비 지원, 검사 후 사고발생시 결과론적 징계 금지 등 실질적인 현장 지원을 추진하겠습니다.",
+   timeline:[
+     {d:"당선 즉시",t:"검사원 고충 수렴 및 요구안 수립 착수"},
+     {d:"취임 30일",t:"출장비 현실화(차량감가·톨비) 교섭 요구안 기획"},
+     {d:"취임 100일",t:"법인대리운전 이용 방안·징계 개선 요구안 수립"},
+     {d:"6개월",t:"장기검사 귀가여비·장기주차비 지원 협의 착수"},
+     {d:"1년",t:"검사원 근무환경 개선 결과 공개 및 후속 계획 수립"}
+   ],
+   demands:["출장비 현실화 (차량감가, 톨비 지원)","지역담당 일정 횟수 법인대리운전 이용 활용","검사 후 사고발생시 결과론적 징계 금지","1주일 이상 장기 검사시 기혼자 출장기간 중 1회 귀가 여비 보전","출장시 장기주차비 지원","검사원 근무환경 종합 개선"],
+   metrics:["출장비 현실화 교섭 반영 여부","법인대리운전 제도화 협의 여부","징계 개선 조항 반영 여부","귀가여비·주차비 지원 협약 체결 여부"]},
   {no:"6호",icon:"🌱",color:"c-indigo",qc:"ac-indigo",
    title:"저연차 조합원의 권익향상",
-   short:"행정업무 TF·탕비실 구독제·힐링이벤트·전사적 해커톤·전용 창구",
-   bg:"일한 만큼 인정받고, 아이디어가 실현되는 조직을 만들겠습니다. 저연차 직원이 성장하고 싶어지는 환경을 만드는 것이 곧 중앙회의 미래입니다. 행정업무를 줄이고 일하고 싶은 문화를 정착시키겠습니다.",
-   timeline:[{d:"즉시",t:"저연차 전용 의견수렴 창구 개설"},{d:"30일",t:"행정업무 왕창 줄이기 TF 출범"},{d:"100일",t:"탕비실 구독제·주임의 날·대리의 날 도입"},{d:"6개월",t:"입사 n주년 힐링이벤트 부활"},{d:"1년",t:"전사적 해커톤 실시"}],
-   demands:["'행정업무 왕창 줄이기 TF' 설치","사내 탕비실 구독제 도입","주임의 날·대리의 날 지정 및 이벤트","입사 n주년 기념 힐링이벤트 부활","저연차 전용 의견수렴 창구 마련","전사적 해커톤 실시 (문제해결형 프로젝트)"],
-   metrics:["행정업무 감소율","탕비실 이용 만족도","힐링이벤트 참여율","해커톤 아이디어 반영 건수"]},
+   short:"행정업무 TF·탕비실 구독제·힐링이벤트·해커톤·전용 의견창구",
+   bg:"일한 만큼 인정받고, 아이디어가 실현되는 조직을 만들겠습니다. '행정업무 왕창 줄이기 TF' 설치, 사내 탕비실 구독제 도입, 주임의 날·대리의 날 지정, 입사 n주년 힐링이벤트 부활, 저연차 전용 의견수렴 창구, 전사적 해커톤 실시로 저연차 직원이 일하고 싶은 문화를 정착시키겠습니다.",
+   timeline:[
+     {d:"당선 즉시",t:"저연차 전용 의견수렴 창구 개설 계획 수립"},
+     {d:"취임 30일",t:"'행정업무 왕창 줄이기 TF' 설치 기획 및 방안 수립"},
+     {d:"취임 100일",t:"탕비실 구독제·주임의 날·대리의 날 도입 방안 수립"},
+     {d:"6개월",t:"입사 n주년 힐링이벤트 부활 기획"},
+     {d:"1년",t:"전사적 해커톤 기획 및 실시"}
+   ],
+   demands:["'행정업무 왕창 줄이기 TF' 설치하여 행정업무 실질적 감소 추진","사내 탕비실 구독제 도입하여 저연차 직원의 근로의욕 고취","주임의 날, 대리의 날 지정하여 각종 이벤트 추진","입사 n주년 기념 힐링이벤트 부활","저연차직급 전용 의견수렴 창구 마련 (상하간 소통 증진·일하고 싶은 문화 정착)","내 상상을 실현시켜줄 전사적 해커톤 실시"],
+   metrics:["행정업무 TF 설치 여부","탕비실 구독제 도입 협의 여부","주임·대리의 날 지정 여부","힐링이벤트 기획 및 실시 여부","해커톤 실시 여부"]},
   {no:"7호",icon:"🤝",color:"c-red",qc:"ac-red",
-   title:"속 시원한 사이다 노조 · 조합원이 주인인 노조",
-   short:"내 노조 만들기·명분GIVE&이익TAKE·정책수립위원회·고충위원회 실질 가동",
-   bg:"노조비는 조합원에게 최대한 환원되어야 합니다. 싸울 때 강하게 싸우고, 협상할 때 실리를 챙기는 전략적 노조를 만들겠습니다. 블라 등 소수의견에 휘둘리지 않고 현장감·균형감 있는 의견을 반영하겠습니다.",
-   timeline:[{d:"즉시",t:"투명한 재정 공개 시스템 가동"},{d:"30일",t:"정책수립위원회 설립"},{d:"100일",t:"운영위원회 분기별 정기개최 시행"},{d:"6개월",t:"반기 1회 이상 현장의견 청취"},{d:"1년",t:"고충위원회 실질 가동 성과 공개"}],
-   demands:["조합비 최대 환원·다양한 이벤트 운영","투명한 재정 집행·주기적 정보공개","전조합원 노동교육으로 문제의식 강화","운영위원회 분기 정기개최","명분GIVE & 이익TAKE 전략 실행","노조 내 정책수립위원회 설립","반기 현장의견 청취 (현장감·균형감 반영)","고충위원회 실질 가동"],
-   metrics:["조합비 환원율","정보공개 횟수","현장의견 반영률","조합원 만족도"]}
+   title:"속 시원한 사이다 노조",
+   short:"내 노조 만들기·명분GIVE&이익TAKE·정책수립위원회·투명 재정 공개",
+   bg:"'그들의 노조가 아닌 내 노조'를 만들겠습니다. 조합비 최대 환원, 투명한 재정 집행 및 주기적 정보공개, 전조합원 노동교육으로 문제의식을 강화하겠습니다. 운영위원회 분기별 정기개최, '명분GIVE & 이익TAKE' 전략으로 싸울 때 강하게 싸우고, 정책수립위원회 설립으로 요구 안건을 체계적으로 관리하겠습니다.",
+   timeline:[
+     {d:"당선 즉시",t:"노조 내 정책수립위원회 설립 방안 수립"},
+     {d:"취임 30일",t:"투명한 재정 공개 시스템 설계 및 운영 계획 수립"},
+     {d:"취임 100일",t:"운영위원회 분기 정기개최 계획 수립·고충위원회 가동 기획"},
+     {d:"6개월",t:"반기 현장의견 청취 체계 구축 및 실시"},
+     {d:"1년",t:"정책수립위원회 운영 결과 공개 및 후속 요구안 수립"}
+   ],
+   demands:["노조야 뭐하니? '그들의 노조가 아닌 내 노조' 만들기","다양한 이벤트로 조합비 최대 환원","투명한 재정 집행 및 주기적 정보공개","전조합원 노동교육으로 문제의식 강화","운영위원회 분기별 정기개최하여 투쟁역량 집중","사측에 대한 '명분GIVE & 이익TAKE' 전략으로 강하게 투쟁","노조 내 정책수립위원회 설립하여 요구 안건 체계적 관리","반기 1회 이상 정기적 현장의견 청취","고충위원회 실질적 가동, 노조원의 힘과 위로가 되는 노조"],
+   metrics:["정책수립위원회 설립 여부","재정 공개 정기 실시 여부","운영위원회 분기개최 이행 여부","현장의견 청취 반기 실시 여부","고충위원회 가동 여부"]}
 ];
+
+
 
 /* ════ 기본 데이터 ════ */
 const defaultData={
   brandName:"강한 노조! 투명한 노조!",
-  heroOrg:"전국금융산업노동조합\n새마을금고중앙회지부",
   heroTitle:"강한 노조!\n투명한 노조!",
   heroText:"행동으로 실천하는 사람들이 만들어가는 체계적 투쟁노조. 현명한 선택이 수준 높은 중앙회를 만듭니다.",
-  liveTitle:"교섭 라이브",
-  liveLead:"안건 등록부터 협의·결과·후속조치까지 단계별로 공개합니다.",
+  liveTitle:"교섭 추진 현황",
+  liveLead:"단체교섭 요구안 수립부터 교섭 진행·결과·후속조치까지 단계별로 공개합니다.",
   voiceTitle:"언제든 말할 수 있는 공간",
-  voiceLead:"익명 또는 실명으로 의견을 남길 수 있습니다. 급여·복지·근무여건·IT환경·지역고충 등 언제든 접수합니다.",
+  voiceLead:"익명 또는 공개로 의견을 남길 수 있습니다. 급여·복지·근무여건·IT환경·지역고충 등 무엇이든 접수합니다.",
   pledgeTitle:"공약 이행률",
-  pledgeLead:"완료·진행·계획·보류 사유를 조합원이 모바일에서 바로 확인할 수 있도록 공개합니다.",
+  pledgeLead:"취임 후 공약별 진행 현황을 조합원이 직접 확인할 수 있도록 공개합니다. (취임 전: 0% / 이행 예정)",
   roadmap100:[
-    {phase:"당선 즉시",items:["과잉·부당지원 투쟁 선언","신입·승진 꽃배달·리무진서비스 시행","저연차·IT 전용 의견수렴 창구 개설","투명한 재정 공개 시스템 가동"]},
-    {phase:"취임 30일",items:["합리적 급여인상 요구안 제출","행정업무 줄이기 TF 출범","검사원 출장비 현실화 교섭","정책수립위원회 설립"]},
-    {phase:"취임 100일",items:["성과급 500% 교섭 착수","MG IT의 날 제정","탕비실 구독제·주임·대리의 날 도입","법인대리운전 제도화","공약 이행률 1차 공개"]},
-    {phase:"6개월",items:["온가족 티켓·휴양프로그램 시행","퇴직금누진제·재택근무 도입","장기검사 귀가여비·주차비 지원","운영위원회 분기 정기개최"]},
-    {phase:"1년",items:["모든 공약 이행률 종합 보고","전사적 해커톤 실시","고충위원회 실질 가동 성과 공개","조합원 평가 및 후속 개선안 발표"]}
+    {phase:"당선 즉시",items:[
+      "정책수립위원회 설립 방안 수립",
+      "저연차·IT 직원 전용 의견수렴 창구 개설 계획 수립",
+      "신입·승진 꽃배달·출근리무진서비스 도입 요구안 마련",
+      "투명한 재정 공개 시스템 설계 착수"
+    ]},
+    {phase:"취임 30일",items:[
+      "합리적 급여인상 교섭 요구안 수립 및 제출 기획",
+      "'행정업무 왕창 줄이기 TF' 설치 기획",
+      "검사원 출장비 현실화 교섭 요구안 기획",
+      "대금고 과잉지원 투쟁 공식 요구안 제출 계획 수립"
+    ]},
+    {phase:"취임 100일",items:[
+      "단체교섭 안건 최종 수립 (성과급 500%, 퇴직금누진제, 리프레쉬수당 포함)",
+      "'MG IT의 날' 제정 기획 및 협의 착수",
+      "탕비실 구독제·주임의 날·대리의 날 도입 방안 수립",
+      "법인대리운전 제도화 협의 착수",
+      "운영위원회 분기 정기개최 계획 수립",
+      "공약 이행 계획서 1차 공개"
+    ]},
+    {phase:"6개월",items:[
+      "복지 수요조사 실시 및 온가족 복지프로그램 도입 협의",
+      "IT 근무환경 개선(냉난방 자율·재택접속) 협의 착수",
+      "가정의 날·생일 반차·재택근무 도입 교섭 추진",
+      "장기검사 귀가여비·장기주차비 지원 협의 착수",
+      "반기 현장의견 청취 체계 구축"
+    ]},
+    {phase:"1년",items:[
+      "교섭 결과 종합 보고 및 미이행 항목 후속 계획 수립",
+      "전사적 해커톤 기획 및 실시",
+      "입사 n주년 힐링이벤트 부활 기획 및 실행",
+      "조합원 대상 공약 이행 평가 실시",
+      "차기 요구안 수립 착수"
+    ]}
   ],
   live:[
-    {status:"진행중",title:"2026년 단체교섭 요구안 준비",memo:"급여인상·성과급 500%·리프레쉬수당·특수업무수당 포함",date:"진행중"},
-    {status:"준비중",title:"합리적 급여인상 제도화 교섭",memo:"전년도 금고배당율 이상 인상 요구안 정리",date:"준비중"},
-    {status:"진행중",title:"검사원 출장비 현실화 교섭",memo:"차량감가·톨비·장기주차비·야간택시비 지원 포함",date:"진행중"},
-    {status:"계획중",title:"IT 근무환경 개선 협의체 구성",memo:"사내카페·냉난방자율·재택접속 환경 포함",date:"계획중"}
+    {status:"준비중",title:"2026년 단체교섭 요구안 수립",memo:"합리적 급여인상·성과급 500%·리프레쉬수당·특수업무수당·퇴직금누진제 포함 요구안 기획 중",date:"취임 즉시"},
+    {status:"준비중",title:"대금고 과잉·부당지원 투쟁 요구안 준비",memo:"합리적 수준 금고지원 요구 및 정치적 개입 금지 요구안 수립 기획",date:"취임 즉시"},
+    {status:"계획중",title:"검사원 출장비 현실화 교섭",memo:"차량감가·톨비 지원, 법인대리운전, 귀가여비·장기주차비 지원 방안 기획",date:"취임 30일"},
+    {status:"계획중",title:"IT 근무환경 개선 협의체 구성",memo:"사내카페·냉난방 자율·재택접속·야간 택시비 지원 방안 협의체 구성 계획",date:"취임 100일"}
   ],
   pledges:[
-    {title:"중앙회 중심잡기 (1호 공약)",percent:20,status:"진행중",memo:"과잉지원 투쟁 선언 및 요구안 준비중"},
-    {title:"급여·근무조건 개선 (2호 공약)",percent:15,status:"준비중",memo:"급여인상 요구안·성과급 교섭 준비"},
-    {title:"복지 갓금중 (3호 공약)",percent:30,status:"진행중",memo:"꽃배달·리무진서비스 즉시 시행 준비"},
-    {title:"IT 출근 맛집 (4호 공약)",percent:20,status:"계획중",memo:"전용 의견창구 개설·사내카페 요구 준비"},
-    {title:"검사원 특화 (5호 공약)",percent:15,status:"계획중",memo:"출장비 현실화 교섭 준비"},
-    {title:"저연차 권익향상 (6호 공약)",percent:25,status:"준비중",memo:"TF 출범·전용 의견창구 개설 준비"},
-    {title:"사이다 노조 (7호 공약)",percent:35,status:"진행중",memo:"정책수립위원회 설립·재정 공개 시스템 준비"}
+    {title:"1호 공약 — 중앙회야 중심 잡자!",percent:0,status:"계획중",memo:"취임 후 투쟁 요구안 수립 및 교섭 착수 예정"},
+    {title:"2호 공약 — 모든 일잘러가 대우받는 중앙회",percent:0,status:"계획중",memo:"취임 후 단체교섭 요구안에 반영 예정 (급여·성과급·근무제도)"},
+    {title:"3호 공약 — 복지는 갓금중이지~",percent:0,status:"계획중",memo:"취임 후 복지 수요조사 실시 및 도입 협의 예정"},
+    {title:"4호 공약 — IT를 출근 맛집으로!",percent:0,status:"계획중",memo:"취임 후 IT 전용 의견창구 개설 및 개선 협의 착수 예정"},
+    {title:"5호 공약 — 지역본부 검사원 특화",percent:0,status:"계획중",memo:"취임 후 출장비 현실화 및 법인대리운전 제도화 방안 기획 예정"},
+    {title:"6호 공약 — 저연차 조합원의 권익향상",percent:0,status:"계획중",memo:"취임 후 행정업무 TF 설치 기획 및 전용 의견창구 개설 예정"},
+    {title:"7호 공약 — 속 시원한 사이다 노조",percent:0,status:"계획중",memo:"취임 즉시 정책수립위원회 설립 및 투명 재정공개 시스템 설계 착수 예정"}
   ],
   voices:[],
   announcement:{show:false,type:"info",title:"공지사항",text:"내용을 입력해 주세요."}
 };
-
 const SK="union_v2_2026",PK="union_admin_pw";
 let data=loadData(),currentAdminTab="home";
 
@@ -802,7 +873,7 @@ function avgPledge(){if(!data.pledges?.length) return 0;return Math.round(data.p
 
 /* ─── VIEW SWITCHING ─── */
 let currentView="home";
-function switchView(v){
+function _doSwitchView(v){
   document.querySelectorAll(".view").forEach(el=>el.classList.remove("active"));
   document.querySelectorAll(".bnav-btn").forEach(el=>el.classList.remove("active"));
   const vEl=$("view-"+v);if(vEl) vEl.classList.add("active");
@@ -810,6 +881,10 @@ function switchView(v){
   currentView=v;
   window.scrollTo({top:0,behavior:"smooth"});
   setTimeout(()=>initReveal(),100);
+}
+function switchView(v){
+  history.pushState({view:v},"");
+  _doSwitchView(v);
 }
 document.querySelectorAll("[data-view]").forEach(el=>el.onclick=()=>switchView(el.dataset.view));
 document.querySelectorAll("[data-view-jump]").forEach(el=>el.onclick=()=>switchView(el.dataset.viewJump));
@@ -1167,6 +1242,17 @@ $("resetData")?.addEventListener("click",()=>{if(confirm("초기화할까요?"))
 
 render();
 setTimeout(initReveal,400);
+
+/* ═══ 뒤로가기 처리 (Android/iOS 꺼짐 방지) ═══ */
+// 초기 페이지 상태 등록
+history.replaceState({view:"home"},"");
+// 뒤로가기 누르면 이전 뷰로 이동 (앱 종료 방지)
+window.addEventListener("popstate",function(e){
+  const v=(e.state&&e.state.view)||"home";
+  _doSwitchView(v);
+  // 홈이면 다시 스택에 올려서 두 번 누를 때 종료 가능하게
+  if(v==="home") history.replaceState({view:"home"},"");
+});
 
 /* ═══ 통합 클릭 인터랙션 ═══ */
 document.addEventListener("click",e=>{
