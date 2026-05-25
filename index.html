@@ -50,6 +50,7 @@ button,input,textarea,select{font:inherit;cursor:pointer}
 @keyframes glowPulse{0%,100%{box-shadow:0 0 0 0 rgba(49,130,246,.35)}50%{box-shadow:0 0 0 8px rgba(49,130,246,.0)}}
 @keyframes slideDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes ripple{0%{transform:scale(0);opacity:.6}100%{transform:scale(2.5);opacity:0}}
+@keyframes photoGlow{0%,100%{box-shadow:0 4px 16px rgba(0,0,0,.3);border-color:rgba(255,255,255,.45)}50%{box-shadow:0 6px 28px rgba(49,130,246,.5),0 0 0 4px rgba(255,255,255,.3);border-color:rgba(255,255,255,.75)}}
 
 /* ─── SCROLL REVEAL ─── */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
@@ -113,7 +114,8 @@ button,input,textarea,select{font:inherit;cursor:pointer}
 .hero-kihoe-lbl{font-size:11px;font-weight:800;opacity:.85;letter-spacing:.3px}
 .hero-candidates-photo{flex:1;border-radius:14px;object-fit:cover;object-position:center 15%;
   height:78px;border:2px solid rgba(255,255,255,.45);
-  box-shadow:0 4px 16px rgba(0,0,0,.3);min-width:0;display:block;}
+  box-shadow:0 4px 16px rgba(0,0,0,.3);min-width:0;display:block;
+  animation:photoGlow 4s ease-in-out infinite,floatY 6s ease-in-out 0.5s infinite;}
 .hero-photo-caption{display:flex;position:relative;z-index:1;margin-bottom:14px;
   background:rgba(0,0,0,.22);border-radius:10px;padding:7px 10px;}
 .hero-photo-person{flex:1;text-align:center}
@@ -160,15 +162,6 @@ button,input,textarea,select{font:inherit;cursor:pointer}
   cursor:pointer;transition:background .15s,transform .1s;user-select:none;}
 .mn-stat:active{transform:scale(.92);background:rgba(255,255,255,.32);}
 
-/* ─── ADVANTAGE BANNER ─── */
-.advantage-banner{background:var(--white);border-radius:var(--r-lg);
-  border-top:3px solid var(--pr);border:1px solid var(--bd);border-top:3px solid var(--pr);
-  padding:16px 14px;margin-bottom:16px;box-shadow:var(--sh);}
-.adv-top{font-size:13px;font-weight:700;color:var(--pr);letter-spacing:.5px;text-transform:uppercase;margin-bottom:12px;}
-.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);}
-.adv-cell{background:var(--white);text-align:center;padding:12px 6px;}
-.adv-big{font-size:24px;font-weight:800;color:var(--pr);letter-spacing:-.5px;line-height:1.1;margin-bottom:3px;}
-.adv-small{font-size:13px;color:var(--tt);font-weight:600;line-height:1.35;}
 
 /* ─── PLEDGE QUICK GRID ─── */
 .pq-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -524,25 +517,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
       </div>
     </div>
 
-    <!-- 경쟁 우위 강조 배너 -->
-    <div class="advantage-banner reveal stag2">
-      <div class="adv-top">✦ 2기호 공약이 다른 이유</div>
-      <div class="adv-grid">
-        <div class="adv-cell">
-          <div class="adv-big">5단계</div>
-          <div class="adv-small">모든 공약에<br>단계별 실행계획</div>
-        </div>
-        <div class="adv-cell">
-          <div class="adv-big">35+</div>
-          <div class="adv-small">수치·날짜 기반<br>구체적 항목</div>
-        </div>
-        <div class="adv-cell">
-          <div class="adv-big">즉시</div>
-          <div class="adv-small">당선 즉시<br>4개 실행 가능</div>
-        </div>
-      </div>
-    </div>
-
     <!-- 공약 이행률 확인 카드 (홈 상단) -->
     <div class="pledge-link-card reveal stag3" data-view-jump="pledges">
       <div class="plc-icon">📊</div>
@@ -664,7 +638,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
   <div class="wrap">
     <div class="ptitle"><h2>관리자 모드</h2><p>비밀번호 입력 후 코딩 없이 모든 콘텐츠를 수정·관리할 수 있습니다.</p></div>
     <div class="adm-login" id="loginBox">
-      <h3>관리자 로그인</h3><p>비밀번호를 입력해 주세요. (기본: 2026)</p>
+      <h3>🔐 관리자 로그인</h3><p style="font-size:15px;color:var(--ts);margin-bottom:18px">비밀번호를 입력해 주세요.</p>
       <div class="adm-pw-row">
         <input class="adm-pw-in" type="password" inputmode="numeric" placeholder="비밀번호" id="adminPw">
         <button class="adm-pw-btn" id="loginBtn">로그인</button>
@@ -789,11 +763,29 @@ const PLEDGES7=[
 
 
 
+
+/* ═══ 공약 편집 병합 함수 ═══ */
+let adminPledgeIdx=0;
+function getEffectivePledge(i){
+  const base=PLEDGES7[i];
+  const e=(data.pledge_edits&&data.pledge_edits[i])||{};
+  return {
+    ...base,
+    title:e.title||base.title,
+    short:e.short||base.short,
+    bg:e.bg||base.bg,
+    timeline:e.timeline||base.timeline,
+    demands:e.demands||base.demands,
+    metrics:e.metrics||base.metrics,
+  };
+}
+
 /* ════ 기본 데이터 ════ */
 const defaultData={
   brandName:"강한 노조! 투명한 노조!",
   heroTitle:"강한 노조!\n투명한 노조!",
   heroText:"행동으로 실천하는 사람들이 만들어가는 체계적 투쟁노조. 현명한 선택이 수준 높은 중앙회를 만듭니다.",
+  statPledge:"7",statItems:"30+",statDays:"100",statImmed:"4",
   liveTitle:"교섭 추진 현황",
   liveLead:"단체교섭 요구안 수립부터 교섭 진행·결과·후속조치까지 단계별로 공개합니다.",
   voiceTitle:"언제든 말할 수 있는 공간",
@@ -852,6 +844,7 @@ const defaultData={
     {title:"7호 공약 — 속 시원한 사이다 노조",percent:0,status:"계획중",memo:"취임 즉시 정책수립위원회 설립 및 투명 재정공개 시스템 설계 착수 예정"}
   ],
   voices:[],
+  pledge_edits:{},
   announcement:{show:false,type:"info",title:"공지사항",text:"내용을 입력해 주세요."}
 };
 const SK="union_v2_2026",PK="union_admin_pw";
@@ -860,6 +853,7 @@ let data=loadData(),currentAdminTab="home";
 function loadData(){
   try{const r=localStorage.getItem(SK);if(!r) return structuredClone(defaultData);
     const d={...structuredClone(defaultData),...JSON.parse(r)};
+    if(!d.pledge_edits) d.pledge_edits={};
     if(!d.announcement) d.announcement={...defaultData.announcement};
     if(!d.voices) d.voices=[];return d;
   }catch(e){return structuredClone(defaultData);}
@@ -919,6 +913,12 @@ const statRow=document.querySelector(".stats-row");if(statRow) cObs.observe(stat
 
 /* ─── RENDER ─── */
 function render(){
+  // stat 카드 숫자 업데이트
+  const statMap=[["statPledge","7"],["statItems","30+"],["statDays","100"],["statImmed","4"]];
+  document.querySelectorAll(".stat-num").forEach((el,i)=>{
+    const [key,def]=statMap[i]||[];
+    if(key){const v=data[key]||def||"";const counter=el.querySelector(".counter");if(counter) counter.dataset.target=parseInt(v)||0;el.querySelector(".stat-unit")&&(el.querySelector(".stat-unit").textContent=v.replace(/[0-9]/g,""));}
+  });
   ["brandName","heroTitle","heroText","liveTitle","liveLead","voiceTitle","voiceLead","pledgeTitle","pledgeLead"]
     .forEach(k=>{if($(k)) $(k).textContent=data[k]||"";});
   if($("heroOrg")) $("heroOrg").innerHTML=(data.heroOrg||"").replace(/\n/g,"<br>");
@@ -940,7 +940,7 @@ function renderAnnouncement(){
 
 function renderHomeQuickPledges(){
   const el=$("homeQuickPledges");if(!el) return;
-  el.innerHTML=PLEDGES7.map((p,i)=>`
+  el.innerHTML=PLEDGES7.map((_,i)=>{const p=getEffectivePledge(i);return `
     <div class="pq-card ${p.qc} ${i===6?'wide':''} reveal stag${(i%5)+1}" data-goto-pledge="${i}">
       <div class="pq-accent"></div>
       <div class="pq-body">
@@ -969,7 +969,7 @@ function renderHomeRoadmap(){
 
 function renderAccordion(){
   const el=$("accordionCards");if(!el) return;
-  el.innerHTML=PLEDGES7.map((p,i)=>`
+  el.innerHTML=PLEDGES7.map((_,i)=>{const p=getEffectivePledge(i);return `
     <div class="ac-card ${p.color} reveal stag${(i%5)+1}" id="ac-${i}">
       <div class="ac-head" onclick="toggleAccordion(${i})">
         <div class="ac-no-badge">${esc(p.no)}</div>
@@ -1006,7 +1006,7 @@ function renderAccordion(){
           <ul class="det-metrics">${p.metrics.map(m=>`<li class="det-metric-item">${esc(m)}</li>`).join("")}</ul>
         </div>
       </div>
-    </div>`).join("");
+    </div>`}).join("");
   setTimeout(initReveal,50);
 }
 
@@ -1084,6 +1084,7 @@ $("voiceForm")?.addEventListener("submit",e=>{
 /* ═══════ ADMIN ═══════ */
 const ADMIN_TABS=[
   {id:"home",label:"🏠 홈"},
+  {id:"pledge_content",label:"📋 공약 내용"},
   {id:"roadmap",label:"📅 로드맵"},
   {id:"live",label:"📡 교섭"},
   {id:"pledges",label:"📊 이행률"},
@@ -1145,11 +1146,66 @@ function roadmapEditor(){
 function renderAdminEditor(){
   let h="";
   switch(currentAdminTab){
-    case"home":h=`<div class="adm-block"><h4>홈 화면 텍스트</h4>
-      ${inF("브랜드명","brandName")}${inF("기관명","heroOrg","textarea")}${inF("Hero 슬로건","heroTitle")}${inF("Hero 설명","heroText","textarea")}</div>`;break;
+    case"home":h=`
+      <div class="adm-block"><h4>📱 히어로 텍스트</h4>
+        ${inF("슬로건 (Hero 제목)","heroTitle")}
+        ${inF("설명 문구","heroText","textarea")}
+      </div>
+      <div class="adm-block"><h4>🔢 통계 숫자</h4>
+        <p style="font-size:13px;color:var(--ts);margin-bottom:12px">홈 화면 4개 숫자 카드를 수정합니다.</p>
+        ${inF("핵심 공약 수 (예: 7)","statPledge")}
+        ${inF("세부 실행 수 (예: 30+)","statItems")}
+        ${inF("로드맵 일수 (예: 100)","statDays")}
+        ${inF("즉시 실행 수 (예: 4)","statImmed")}
+      </div>`;break;
+    case"pledge_content": {
+      const p=getEffectivePledge(adminPledgeIdx);
+      h=`
+      <div class="adm-block">
+        <h4>📋 공약 내용 편집</h4>
+        <p style="font-size:13px;color:var(--ts);margin-bottom:12px">저장 버튼을 누르면 앱에 즉시 반영됩니다.</p>
+        <label class="flbl no-top">편집할 공약 선택</label>
+        <select class="adm-sel" id="pledgeEditSel">
+          ${PLEDGES7.map((q,i)=>`<option value="${i}" ${i===adminPledgeIdx?"selected":""}>${q.no} — ${q.title.slice(0,18)}</option>`).join("")}
+        </select>
+      </div>
+      <div class="adm-block">
+        <h4>기본 정보</h4>
+        <label class="flbl no-top">공약 제목</label>
+        <input class="adm-in" id="pe_title" value="${esc(p.title)}">
+        <label class="flbl">한줄 요약</label>
+        <input class="adm-in" id="pe_short" value="${esc(p.short)}">
+        <label class="flbl">추진 배경 (상세 설명)</label>
+        <textarea class="adm-ta" id="pe_bg" style="min-height:100px">${esc(p.bg)}</textarea>
+      </div>
+      <div class="adm-block">
+        <h4>📅 단계별 실행계획</h4>
+        ${p.timeline.map((t,ti)=>`
+          <div style="margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--bd)">
+            <label class="flbl no-top">단계 ${ti+1} — 기간명</label>
+            <input class="adm-in" id="pe_tl_d_${ti}" value="${esc(t.d)}">
+            <label class="flbl">실행 내용</label>
+            <input class="adm-in" id="pe_tl_t_${ti}" value="${esc(t.t)}">
+          </div>`).join("")}
+      </div>
+      <div class="adm-block">
+        <h4>✅ 요구사항</h4>
+        <p style="font-size:13px;color:var(--tt);margin-bottom:8px">항목을 줄바꿈(Enter)으로 구분하세요.</p>
+        <textarea class="adm-ta" id="pe_demands" style="min-height:180px">${esc(p.demands.join("\n"))}</textarea>
+      </div>
+      <div class="adm-block">
+        <h4>📊 측정 지표</h4>
+        <p style="font-size:13px;color:var(--tt);margin-bottom:8px">항목을 줄바꿈(Enter)으로 구분하세요.</p>
+        <textarea class="adm-ta" id="pe_metrics">${esc(p.metrics.join("\n"))}</textarea>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:4px">
+        <button class="btn-p" style="flex:2" id="savePledgeEdit">💾 저장·즉시 반영</button>
+        <button class="btn-d" style="flex:1" id="resetPledgeEdit">↩ 원본 복원</button>
+      </div>`;
+      break;}
     case"roadmap":h=roadmapEditor();break;
-    case"live":h=`<div class="adm-block"><h4>교섭 라이브 소개</h4>${inF("제목","liveTitle")}${inF("설명","liveLead","textarea")}</div>
-      ${arrEd("교섭 항목","live",[{name:"status",label:"상태",type:"select",options:statusOpts},{name:"title",label:"제목"},{name:"memo",label:"설명",type:"textarea"},{name:"date",label:"날짜"}])}`;break;
+    case"live":h=`<div class="adm-block"><h4>교섭 추진현황 소개</h4>${inF("제목","liveTitle")}${inF("설명","liveLead","textarea")}</div>
+      ${arrEd("교섭 항목","live",[{name:"status",label:"상태",type:"select",options:statusOpts},{name:"title",label:"제목"},{name:"memo",label:"설명",type:"textarea"},{name:"date",label:"날짜·시기"}])}`;break;
     case"pledges":h=`<div class="adm-block"><h4>이행률 소개</h4>${inF("제목","pledgeTitle")}${inF("설명","pledgeLead","textarea")}</div>
       ${arrEd("이행률 항목","pledges",[{name:"title",label:"공약명"},{name:"percent",label:"이행률",type:"range"},{name:"status",label:"상태",type:"select",options:statusOpts},{name:"memo",label:"설명",type:"textarea"}])}`;break;
     case"voice":h=`<div class="adm-block"><h4>의견광장 소개</h4>${inF("제목","voiceTitle")}${inF("설명","voiceLead","textarea")}</div>
@@ -1174,27 +1230,62 @@ function renderAdminEditor(){
       <label class="flbl">제목</label><input class="adm-in" id="annTitle" value="${esc(data.announcement.title)}">
       <label class="flbl">내용</label><textarea class="adm-ta" id="annText">${esc(data.announcement.text)}</textarea>
       <div style="margin-top:14px"><button class="btn-p" id="saveAnn">공지 저장·적용</button></div></div>`;break;
-    case"settings":h=`<div class="adm-block"><h4>🔑 비밀번호 변경</h4>
-      <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+    case"settings":h=`
+      <div class="adm-block"><h4>🔑 비밀번호 변경</h4>
         <label class="flbl no-top">현재 비밀번호</label><input class="adm-in" type="password" id="pwOld" placeholder="현재 비밀번호">
         <label class="flbl">새 비밀번호 (4자 이상)</label><input class="adm-in" type="password" id="pwNew" placeholder="새 비밀번호">
-        <label class="flbl">새 비밀번호 확인</label><input class="adm-in" type="password" id="pwConfirm" placeholder="확인">
-        <button class="btn-p" id="changePwBtn">비밀번호 변경</button></div></div>
+        <label class="flbl">새 비밀번호 확인</label><input class="adm-in" type="password" id="pwConfirm" placeholder="새 비밀번호 재입력">
+        <div style="margin-top:14px"><button class="btn-p" id="changePwBtn">비밀번호 변경</button></div>
+      </div>
       <div class="adm-block"><h4>💾 데이터 백업·복원</h4>
-      <p style="font-size:14px;color:var(--ts);margin-bottom:14px">JSON 파일로 내보내거나 복원할 수 있습니다.</p>
-      <button class="btn-g" id="exportBtn">📤 JSON 내보내기</button>
-      <div style="height:10px"></div>
-      <div class="file-input-wrap"><button class="btn-s" style="pointer-events:none">📥 JSON 불러오기</button><input type="file" id="importFile" accept=".json"></div></div>
+        <p style="font-size:14px;color:var(--ts);margin-bottom:14px">JSON 파일로 내보내거나 복원할 수 있습니다.</p>
+        <button class="btn-g" id="exportBtn">📤 JSON 내보내기</button>
+        <div style="height:10px"></div>
+        <div class="file-input-wrap"><button class="btn-s" style="pointer-events:none">📥 JSON 불러오기</button><input type="file" id="importFile" accept=".json"></div>
+      </div>
       <div class="adm-block"><h4 class="danger">⚠ 위험 구역</h4>
-      <p style="font-size:14px;color:var(--ts);margin-bottom:14px">모든 데이터가 초기화됩니다.</p>
-      <button class="btn-d" id="resetData2">전체 데이터 초기화</button></div>`;break;
+        <p style="font-size:14px;color:var(--ts);margin-bottom:14px">모든 콘텐츠·설정이 초기화됩니다.</p>
+        <button class="btn-d" id="resetData2">전체 초기화</button>
+      </div>`;break;
   }
   $("adminEditor").innerHTML=h;
-  $("adminActions").classList.toggle("hidden",currentAdminTab==="settings");
+  $("adminActions").classList.toggle("hidden",currentAdminTab==="settings"||currentAdminTab==="pledge_content");
   bindEditorEvents();
 }
 
 function bindEditorEvents(){
+  // 공약 선택 변경
+  const pesel=document.getElementById("pledgeEditSel");
+  if(pesel) pesel.onchange=()=>{adminPledgeIdx=parseInt(pesel.value);renderAdminEditor();};
+
+  // 공약 저장
+  const savePE=document.getElementById("savePledgeEdit");
+  if(savePE) savePE.onclick=()=>{
+    const p=getEffectivePledge(adminPledgeIdx);
+    const tl=p.timeline.map((t,ti)=>({
+      d:document.getElementById("pe_tl_d_"+ti)?.value||t.d,
+      t:document.getElementById("pe_tl_t_"+ti)?.value||t.t,
+    }));
+    if(!data.pledge_edits) data.pledge_edits={};
+    data.pledge_edits[adminPledgeIdx]={
+      title:document.getElementById("pe_title")?.value||p.title,
+      short:document.getElementById("pe_short")?.value||p.short,
+      bg:document.getElementById("pe_bg")?.value||p.bg,
+      timeline:tl,
+      demands:(document.getElementById("pe_demands")?.value||"").split("\n").filter(x=>x.trim()),
+      metrics:(document.getElementById("pe_metrics")?.value||"").split("\n").filter(x=>x.trim()),
+    };
+    saveData();render();toast("✓ " + PLEDGES7[adminPledgeIdx].no + " 공약 저장 완료");
+  };
+
+  // 공약 원본 복원
+  const resetPE=document.getElementById("resetPledgeEdit");
+  if(resetPE) resetPE.onclick=()=>{
+    if(!confirm("이 공약을 원본 내용으로 복원할까요?")) return;
+    if(data.pledge_edits) delete data.pledge_edits[adminPledgeIdx];
+    saveData();render();renderAdminEditor();toast("↩ 원본으로 복원되었습니다");
+  };
+
   document.querySelectorAll("[data-key]").forEach(el=>el.oninput=()=>{data[el.dataset.key]=el.value;render();});
   document.querySelectorAll("[data-array]").forEach(el=>el.oninput=()=>{
     const arr=data[el.dataset.array],idx=Number(el.dataset.index),f=el.dataset.field;
