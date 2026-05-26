@@ -785,7 +785,6 @@ const defaultData={
   brandName:"강한 노조! 투명한 노조!",
   heroTitle:"강한 노조!\n투명한 노조!",
   heroText:"행동으로 실천하는 사람들이 만들어가는 체계적 투쟁노조. 현명한 선택이 수준 높은 중앙회를 만듭니다.",
-  statPledge:"7",statItems:"30+",statDays:"100",statImmed:"4",
   liveTitle:"교섭 추진 현황",
   liveLead:"단체교섭 요구안 수립부터 교섭 진행·결과·후속조치까지 단계별로 공개합니다.",
   voiceTitle:"언제든 말할 수 있는 공간",
@@ -913,12 +912,6 @@ const statRow=document.querySelector(".stats-row");if(statRow) cObs.observe(stat
 
 /* ─── RENDER ─── */
 function render(){
-  // stat 카드 숫자 업데이트
-  const statMap=[["statPledge","7"],["statItems","30+"],["statDays","100"],["statImmed","4"]];
-  document.querySelectorAll(".stat-num").forEach((el,i)=>{
-    const [key,def]=statMap[i]||[];
-    if(key){const v=data[key]||def||"";const counter=el.querySelector(".counter");if(counter) counter.dataset.target=parseInt(v)||0;el.querySelector(".stat-unit")&&(el.querySelector(".stat-unit").textContent=v.replace(/[0-9]/g,""));}
-  });
   ["brandName","heroTitle","heroText","liveTitle","liveLead","voiceTitle","voiceLead","pledgeTitle","pledgeLead"]
     .forEach(k=>{if($(k)) $(k).textContent=data[k]||"";});
   if($("heroOrg")) $("heroOrg").innerHTML=(data.heroOrg||"").replace(/\n/g,"<br>");
@@ -949,7 +942,7 @@ function renderHomeQuickPledges(){
         <div class="pq-short">${esc(p.short)}</div>
         <div class="pq-more">상세 보기 →</div>
       </div>
-    </div>`).join("");
+    </div>`}).join("");
   document.querySelectorAll("[data-goto-pledge]").forEach(el=>el.onclick=()=>{
     switchView("manifesto");
     setTimeout(()=>openAccordion(Number(el.dataset.gotoPledge)),200);
@@ -1151,12 +1144,9 @@ function renderAdminEditor(){
         ${inF("슬로건 (Hero 제목)","heroTitle")}
         ${inF("설명 문구","heroText","textarea")}
       </div>
-      <div class="adm-block"><h4>🔢 통계 숫자</h4>
-        <p style="font-size:13px;color:var(--ts);margin-bottom:12px">홈 화면 4개 숫자 카드를 수정합니다.</p>
-        ${inF("핵심 공약 수 (예: 7)","statPledge")}
-        ${inF("세부 실행 수 (예: 30+)","statItems")}
-        ${inF("로드맵 일수 (예: 100)","statDays")}
-        ${inF("즉시 실행 수 (예: 4)","statImmed")}
+      <div class="adm-block"><h4>🗳️ 교섭 현황 안내 문구</h4>
+        ${inF("교섭 탭 제목","liveTitle")}
+        ${inF("교섭 탭 설명","liveLead","textarea")}
       </div>`;break;
     case"pledge_content": {
       const p=getEffectivePledge(adminPledgeIdx);
